@@ -9,6 +9,7 @@ const item: NotificationApiItem = {
   emitterEntity: 'Agencia Estatal de Administracion Tributaria',
   availabilityDate: '2026-02-10T21:07:46+01:00',
   nifTitular: '12345678Z',
+  sentReference: 'REF-1',
 }
 
 describe('toNotification', () => {
@@ -17,6 +18,7 @@ describe('toNotification', () => {
       toNotification(item, { state: 'pending', expiresAt: '2026-03-10' }),
     ).toEqual({
       id: '2699394202927',
+      reference: 'REF-1',
       subject: 'Notificacion administrativa',
       issuer: 'Agencia Estatal de Administracion Tributaria',
       holderNif: '12345678Z',

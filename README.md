@@ -3,12 +3,16 @@
 Read-only command-line client for Spanish public-administration portals, using
 the holder's own digital certificate. One binary, one JSON answer per portal:
 
-| Command                                  | Portal                                          | What it reads                                                       |
-| ---------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------- |
-| `sedes aeat deudas --nif <NIF>`          | Agencia Tributaria (AEAT)                       | Pending debts, their detail, deferral agreements                    |
-| `sedes tgss deuda --nif <NIF> [--out d]` | Tesorería General de la Seguridad Social (TGSS) | The "informe de deuda exigible" (emits it, one per subject and day) |
-| `sedes dehu list [--state s] [--year y]` | Dirección Electrónica Habilitada única (DEHU)   | Pending and realized notifications, without opening any             |
-| `sedes oargt recibos [--include paid]`   | OARGT, Diputación de Cáceres                    | Receipts in voluntary and enforced collection                       |
+| Command                                                                                 | Portal                                          | What it reads                                                                 |
+| --------------------------------------------------------------------------------------- | ----------------------------------------------- | ----------------------------------------------------------------------------- |
+| `sedes aeat deudas --nif <NIF>`                                                         | Agencia Tributaria (AEAT)                       | Pending debts, their detail, deferral agreements                              |
+| `sedes aeat pagos --nif <NIF> [--out d]`                                                | AEAT                                            | Every payment made (MisPagos) with its NRC, and the receipt PDFs              |
+| `sedes aeat declaraciones --nif <NIF> --modelo m --ejercicio y [--periodo p] [--out d]` | AEAT                                            | Declarations filed for one modelo and year, the CSV of each receipt, the PDFs |
+| `sedes tgss deuda --nif <NIF> [--out d]`                                                | Tesorería General de la Seguridad Social (TGSS) | The "informe de deuda exigible" (emits it, one per subject and day)           |
+| `sedes tgss vida-laboral --desde DD/MM/AAAA [--hasta DD/MM/AAAA] [--out d]`             | TGSS                                            | The "informe de vida laboral acotado" for a date range (emits it)             |
+| `sedes dehu list [--state s] [--year y]`                                                | Dirección Electrónica Habilitada única (DEHU)   | Pending and realized notifications, without opening any                       |
+| `sedes dehu documentos --out d [--year y] [--id a,b]`                                   | DEHU                                            | The document and voucher of notifications already realized (none is opened)   |
+| `sedes oargt recibos [--include paid]`                                                  | OARGT, Diputación de Cáceres                    | Receipts in voluntary and enforced collection                                 |
 
 No browser, no runtime dependencies, nothing stored: the tool speaks HTTPS with
 the certificate, walks the Cl@ve relay where the portal needs it, parses the

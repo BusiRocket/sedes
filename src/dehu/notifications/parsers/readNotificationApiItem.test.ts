@@ -32,9 +32,11 @@ describe('readNotificationApiItem', () => {
         emitterEntity: 'Tesoreria General de la Seguridad Social',
         availabilityDate: '2026-01-28T00:15:25+01:00',
         state: 'ACEPTADA',
+        sentReference: 'REF-N271612747',
       }),
     ).toEqual({
       identifier: 'N271612747',
+      sentReference: 'REF-N271612747',
       concept: 'REGIMENES SEG. SOCIAL',
       emitterEntity: 'Tesoreria General de la Seguridad Social',
       availabilityDate: '2026-01-28T00:15:25+01:00',

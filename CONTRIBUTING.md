@@ -34,11 +34,20 @@ named after it, types in their own files, functions under 50 lines, explicit
 return types, `async` for anything returning a promise, and every portal quirk
 documented in a comment next to the code that handles it.
 
-A portal lives in `src/<portal>/` with an orchestrator that takes an
-`HttpClient` and returns a JSON-serialisable report, parsers that take strings
-and return typed values, and one file per CLI command under `src/cli/commands/`.
-Register the command in `src/cli/commandRegistry.ts` and export the public
-pieces from `src/index.ts`.
+A portal lives in `src/<portal>/`, split into a `session/` module (login, URLs,
+the page-level parsers every feature needs) and one folder per feature
+(`aeat/debts`, `aeat/payments`, `dehu/notifications`, `tgss/debt`, ...). Inside
+a feature the orchestrator sits at the root and takes an `HttpClient`, and the
+rest is placed by kind: `types/` (one type per file), `fetchers/` (the HTTP
+calls, `fetch*`), `parsers/` (strings in, typed values out, `parse*`/`read*`),
+`mappers/` (typed values in, typed values out), `selectors/` (`select*`) and
+`validators/` (`is*`/`validate*`). The lint enforces the prefixed kinds and
+forbids `utils/` and `helpers/`; the rest of the placement is convention, kept
+because a reader should find a file from its name alone. Shared modules (`http`,
+`html`, `certificate`, `cli`) follow the same split.
+
+One file per CLI command under `src/cli/commands/`, registered in
+`src/cli/commandRegistry.ts`; export the public pieces from `src/index.ts`.
 
 ## Commits and releases
 

@@ -5,6 +5,8 @@ import type { NotificationState } from './NotificationState'
 /** One DEHU notification or communication, normalized for listing. Never carries what opening it would need. */
 export type Notification = {
   readonly id: string
+  /** DEHU's sent reference, the key its realized documents are read by. */
+  readonly reference?: string | undefined
   readonly subject: string
   readonly issuer: string
   readonly holderNif?: string | undefined

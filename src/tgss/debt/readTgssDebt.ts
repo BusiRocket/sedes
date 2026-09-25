@@ -1,6 +1,6 @@
 import type { HttpClient } from '../../http/types/HttpClient'
+import { fetchProsaDocument } from '../prosa/fetchers/fetchProsaDocument'
 import { loginWithCertificate } from '../session/loginWithCertificate'
-import { downloadReportPdf } from './downloadReportPdf'
 import { emitDebtReport } from './emitDebtReport'
 import { parseDebtDocumentRows } from './parsers/parseDebtDocumentRows'
 import { parseDebtReportText } from './parsers/parseDebtReportText'
@@ -27,7 +27,7 @@ export const readTgssDebt = async (
     parseDebtDocumentRows(outcome.xml).length > 0
       ? parseDebtReportText(outcome.xml)
       : undefined
-  const pdf = await downloadReportPdf(client, session.sessionId)
+  const pdf = await fetchProsaDocument(client, session.sessionId)
   const pdfPath = outDir ? await writeReportPdf(outDir, nif, pdf) : undefined
   return { nif, hasDebt: true, pdfPath, report, notes }
 }

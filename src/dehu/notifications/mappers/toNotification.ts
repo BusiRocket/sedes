@@ -13,6 +13,7 @@ export const toNotification = (
   },
 ): Notification => ({
   id: item.identifier,
+  reference: item.sentReference,
   subject: item.concept,
   issuer: item.emitterEntity,
   holderNif: item.nifTitular,

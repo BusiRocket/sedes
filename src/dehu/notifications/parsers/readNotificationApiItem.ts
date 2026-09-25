@@ -21,8 +21,11 @@ export const readNotificationApiItem = (
   const nifTitular = record['nifTitular']
   const expirationDate = record['expirationDate']
   const state = record['state']
+  const sentReference = record['sentReference']
   return {
     identifier,
+    sentReference:
+      typeof sentReference === 'string' ? sentReference : undefined,
     concept,
     emitterEntity,
     availabilityDate,
