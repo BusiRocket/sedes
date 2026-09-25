@@ -1,7 +1,11 @@
 # sedes
 
+[Leer en español](README.es.md)
+
 Read-only command-line client for Spanish public-administration portals, using
-the holder's own digital certificate. One binary, one JSON answer per portal:
+the holder's own digital certificate. One binary, one JSON answer per portal.
+Maintained by [InteliFactu](https://intelifactu.com), which uses it to keep the
+administrations' side of its customers' books up to date.
 
 | Command                                                                                             | Portal                                          | What it reads                                                                                           |
 | --------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
@@ -104,9 +108,12 @@ merely unimplemented:
 - It never stores portal data, session cookies or tokens beyond the running
   command, and it sends nothing anywhere but to the portal you named.
 
-The one nuance is TGSS: the debt report is a document the portal emits on
-request and limits to one per subject and day. Emitting it changes nothing about
-the holder's position; it is still a read.
+The one nuance is emission. Some reads are documents the portal generates on
+request: the TGSS reports and certificates, the AEAT census certificate and the
+SEPE certificate. Emitting one changes nothing about the holder's position, so
+it is still a read, but the portals limit how many a subject may request per day
+(TGSS refuses around the third request for the same holder), and the commands
+that emit say so in their description.
 
 ## Legal notice
 

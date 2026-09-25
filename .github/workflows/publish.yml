@@ -4,7 +4,7 @@ name: Publish
 # with `gh workflow run publish.yml`, after the release commit and tag.
 #
 # Auth is tokenless via npm Trusted Publishing (OIDC): npmjs.com must list
-# this repository (BusiRocket/sedes) and this workflow (publish.yml) as a
+# this repository (InteliFactu/sedes) and this workflow (publish.yml) as a
 # trusted publisher for the `sedes` package, with the "npm publish" action
 # allowed and no environment. pnpm exchanges the GitHub OIDC id-token for a
 # short-lived publish credential, so no NPM_TOKEN exists anywhere. Provenance

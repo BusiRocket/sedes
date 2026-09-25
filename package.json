@@ -1,7 +1,7 @@
 {
   "name": "sedes",
   "version": "0.1.0",
-  "description": "Read-only command-line client for the Spanish public administration portals (AEAT, TGSS, DEHU, OARGT) using the holder's own digital certificate.",
+  "description": "Read-only command-line client for the Spanish public administration portals (AEAT, TGSS, SEPE, DEHU, OARGT) using the holder's own digital certificate.",
   "license": "MIT",
   "private": false,
   "packageManager": "pnpm@12.5.1",
@@ -14,15 +14,16 @@
   "files": [
     "dist",
     "README.md",
+    "README.es.md",
     "LICENSE"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BusiRocket/sedes.git"
+    "url": "git+https://github.com/InteliFactu/sedes.git"
   },
-  "homepage": "https://github.com/BusiRocket/sedes#readme",
+  "homepage": "https://github.com/InteliFactu/sedes#readme",
   "bugs": {
-    "url": "https://github.com/BusiRocket/sedes/issues"
+    "url": "https://github.com/InteliFactu/sedes/issues"
   },
   "keywords": [
     "aeat",
