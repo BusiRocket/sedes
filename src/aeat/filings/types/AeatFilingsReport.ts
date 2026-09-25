@@ -1,7 +1,7 @@
 import type { AeatFiling } from './AeatFiling'
 import type { FilingsQuery } from './FilingsQuery'
 
-/** What `papeleo aeat declaraciones` prints for one search. */
+/** What `sedes aeat declaraciones` prints for one search. */
 export type AeatFilingsReport = {
   readonly nif: string
   readonly query: FilingsQuery

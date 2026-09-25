@@ -117,7 +117,7 @@ describe('emitUpToDateCertificate', () => {
       page(viewDocUrl, '%PDF-1.4 fixture'),
     )
     const client: HttpClient = { request, cookie: () => 'S1' }
-    dir = await mkdtemp(join(tmpdir(), 'papeleo-tgss-'))
+    dir = await mkdtemp(join(tmpdir(), 'sedes-tgss-'))
 
     const result = await emitUpToDateCertificate(
       client,

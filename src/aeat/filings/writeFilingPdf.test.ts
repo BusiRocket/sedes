@@ -15,7 +15,7 @@ describe('writeFilingPdf', () => {
   })
 
   it('names the file after the modelo, ejercicio, periodo and expediente', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'papeleo-aeat-'))
+    dir = await mkdtemp(join(tmpdir(), 'sedes-aeat-'))
     const pdf = Buffer.from('%PDF-1.4 fixture')
 
     const filePath = await writeFilingPdf(
@@ -32,7 +32,7 @@ describe('writeFilingPdf', () => {
   })
 
   it('leaves the periodo out of the name when the search had none', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'papeleo-aeat-'))
+    dir = await mkdtemp(join(tmpdir(), 'sedes-aeat-'))
 
     const filePath = await writeFilingPdf(
       dir,

@@ -38,7 +38,7 @@ describe('emitAffiliationReport', () => {
   })
 
   it('downloads the informe the entry screen already carries when there is no action', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'papeleo-inaf-'))
+    dir = await mkdtemp(join(tmpdir(), 'sedes-inaf-'))
     const entryXml =
       `<ProsaXMLData>${header}<MESSAGES><MESSAGE><TEXTO><![CDATA[Informe generado correctamente.]]></TEXTO></MESSAGE></MESSAGES>` +
       '<PREVIEWS><PREVIEW SECUENCIAL="1" TYPE="INFORME" IDEMBEDDED="ID_INFORME"/></PREVIEWS></ProsaXMLData>'

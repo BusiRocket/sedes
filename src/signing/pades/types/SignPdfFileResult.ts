@@ -1,4 +1,4 @@
-/** What `papeleo firmar pdf` reports once the signed copy is written. */
+/** What `sedes firmar pdf` reports once the signed copy is written. */
 export type SignPdfFileResult = {
   readonly input: string
   readonly output: string

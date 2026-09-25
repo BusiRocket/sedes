@@ -3,7 +3,7 @@ import type { HttpClient } from '../../http/types/HttpClient'
 import type { CliOptions } from '../types/CliOptions'
 import type { Command } from '../types/Command'
 
-/** `papeleo dehu list`: the holder's pending and realized DEHU notifications, listing only. */
+/** `sedes dehu list`: the holder's pending and realized DEHU notifications, listing only. */
 export const dehuList: Command = {
   portal: 'dehu',
   action: 'list',

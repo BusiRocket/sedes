@@ -3,7 +3,7 @@ import type { HttpClient } from '../../http/types/HttpClient'
 import type { CliOptions } from './CliOptions'
 import type { CommandEffect } from './CommandEffect'
 
-/** One CLI command: `papeleo <portal> <action> [options]`. */
+/** One CLI command: `sedes <portal> <action> [options]`. */
 export type Command = {
   readonly portal: string
   readonly action: string

@@ -1,5 +1,5 @@
 {
-  "name": "papeleo",
+  "name": "sedes",
   "version": "0.1.0",
   "description": "Command-line client for the Spanish public administration portals (AEAT, TGSS, SEPE, DEHU, OARGT, CIRBE) with the holder's own certificate: reads by default, local PAdES and XAdES signing, confirmed writes.",
   "license": "MIT",
@@ -7,7 +7,7 @@
   "packageManager": "pnpm@12.5.1",
   "type": "module",
   "bin": {
-    "papeleo": "./dist/cli/main.js"
+    "sedes": "./dist/cli/main.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -19,11 +19,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/InteliFactu/papeleo.git"
+    "url": "git+https://github.com/InteliFactu/sedes.git"
   },
-  "homepage": "https://github.com/InteliFactu/papeleo#readme",
+  "homepage": "https://github.com/InteliFactu/sedes#readme",
   "bugs": {
-    "url": "https://github.com/InteliFactu/papeleo/issues"
+    "url": "https://github.com/InteliFactu/sedes/issues"
   },
   "keywords": [
     "aeat",

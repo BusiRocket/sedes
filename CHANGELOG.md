@@ -6,12 +6,6 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
-### Changed
-
-- Renamed from `sedes` to `papeleo` before the first release: the package, the
-  binary, the repository (`InteliFactu/papeleo`) and the environment variables
-  (`PAPELEO_CERT`, `PAPELEO_KEY`, `PAPELEO_KEY_PASSPHRASE`).
-
 ### Fixed
 
 - Bodies that read as text (JSON, HTML) are no longer fed to `inflateRawSync`,
@@ -38,7 +32,7 @@ All notable changes to this project are documented here. The format follows
 - Certificate-bearing HTTPS client with cookie jar, redirect handling,
   ISO-8859-15 decoding and inflation of bodies compressed without a header.
 - HTML form parsing and the Cl@ve auto-submit relay walker.
-- CLI skeleton: `papeleo <portal> <action> [--cert] [--key] [--out]`, JSON on
+- CLI skeleton: `sedes <portal> <action> [--cert] [--key] [--out]`, JSON on
   stdout, usage on `--help`.
 - `aeat deudas`: pending debts, their detail and deferral agreements at the
   Agencia Tributaria.

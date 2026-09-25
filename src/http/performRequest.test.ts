@@ -25,10 +25,10 @@ let seenCookie = ''
 let seenBody = ''
 
 beforeAll(async () => {
-  const dir = await mkdtemp(join(tmpdir(), 'papeleo-tls-'))
+  const dir = await mkdtemp(join(tmpdir(), 'sedes-tls-'))
   const certPath = join(dir, 'cert.pem')
   const keyPath = join(dir, 'key.pem')
-  const subject = '/CN=papeleo-test'
+  const subject = '/CN=sedes-test'
   const shape = ['req', '-x509', '-newkey', 'rsa:2048', '-nodes', '-days', '1']
   const files = ['-subj', subject, '-keyout', keyPath, '-out', certPath]
   await run('openssl', [...shape, ...files])
@@ -78,7 +78,7 @@ describe('performRequest', () => {
     })
     expect(response.status).toBe(200)
     expect(response.text).toBe('POST /x?y=1')
-    expect(seenSubject).toBe('papeleo-test')
+    expect(seenSubject).toBe('sedes-test')
     expect(seenBody).toBe('a=b+c')
     expect(jar.get('127.0.0.1', 'session')).toBe('42')
     await performRequest(`${origin}/again`, identity, jar, {})

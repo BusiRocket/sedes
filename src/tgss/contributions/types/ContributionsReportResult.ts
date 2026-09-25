@@ -1,6 +1,6 @@
 import type { ContributionsPage } from './ContributionsPage'
 
-/** What `papeleo tgss bases` prints. */
+/** What `sedes tgss bases` prints. */
 export type ContributionsReportResult = {
   readonly holder?: string | undefined
   readonly nif?: string | undefined

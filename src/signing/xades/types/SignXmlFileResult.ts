@@ -1,7 +1,7 @@
 import type { SignXmlPolicyName } from './SignXmlPolicyName'
 import type { XadesMode } from './XadesMode'
 
-/** What `papeleo firmar xml` reports. */
+/** What `sedes firmar xml` reports. */
 export type SignXmlFileResult = {
   readonly out: string
   readonly mode: XadesMode

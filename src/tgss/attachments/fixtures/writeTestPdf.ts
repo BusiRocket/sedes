@@ -7,7 +7,7 @@ export const writeTestPdf = async (
   fileName = 'document.pdf',
   content = '%PDF-1.4\nsynthetic',
 ): Promise<string> => {
-  const dir = await mkdtemp(join(tmpdir(), 'papeleo-pdf-'))
+  const dir = await mkdtemp(join(tmpdir(), 'sedes-pdf-'))
   const path = join(dir, fileName)
   // The path is a fresh temporary directory created just above.
   // eslint-disable-next-line security/detect-non-literal-fs-filename

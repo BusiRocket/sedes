@@ -15,7 +15,7 @@ describe('writePaymentReceipt', () => {
   })
 
   it('writes the PDF under aeat-pago-<nrc>.pdf', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'papeleo-aeat-'))
+    dir = await mkdtemp(join(tmpdir(), 'sedes-aeat-'))
     const pdf = Buffer.from('%PDF-1.4 fixture')
 
     const filePath = await writePaymentReceipt(

@@ -1,6 +1,6 @@
 import type { DeadlineEntry } from './DeadlineEntry'
 
-/** The answer of `papeleo calendario fiscal`. */
+/** The answer of `sedes calendario fiscal`. */
 export type FiscalCalendar = {
   readonly ejercicio: number
   /** How a deadline on a non-working day moves; the dates already include it. */

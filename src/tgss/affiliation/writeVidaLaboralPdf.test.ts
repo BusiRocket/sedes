@@ -15,7 +15,7 @@ describe('writeVidaLaboralPdf', () => {
   })
 
   it('writes the PDF named after the label, with unsafe characters replaced', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'papeleo-vl-'))
+    dir = await mkdtemp(join(tmpdir(), 'sedes-vl-'))
     const pdf = Buffer.from('%PDF-1.4 informe')
 
     const path = await writeVidaLaboralPdf(dir, 'NOMBRE APELLIDO/2', pdf)

@@ -15,7 +15,7 @@ describe('writeSituationCertificatePdf', () => {
   })
 
   it('writes the PDF under outDir with a fixed name', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'papeleo-sepe-'))
+    dir = await mkdtemp(join(tmpdir(), 'sedes-sepe-'))
     const pdf = Buffer.from('%PDF-1.4 certificado')
 
     const path = await writeSituationCertificatePdf(dir, pdf)

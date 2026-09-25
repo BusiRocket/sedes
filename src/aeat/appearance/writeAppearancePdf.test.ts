@@ -8,7 +8,7 @@ import { writeAppearancePdf } from './writeAppearancePdf'
 
 describe('writeAppearancePdf', () => {
   it('creates outDir and writes the named PDF', async () => {
-    const root = await mkdtemp(join(tmpdir(), 'papeleo-appearance-'))
+    const root = await mkdtemp(join(tmpdir(), 'sedes-appearance-'))
     const outDir = join(root, 'nested')
     const path = await writeAppearancePdf(outDir, '1-acto', Buffer.from('%PDF'))
     expect(path).toBe(join(outDir, 'aeat-notificacion-1-acto.pdf'))

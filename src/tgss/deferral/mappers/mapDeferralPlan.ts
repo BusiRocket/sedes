@@ -1,7 +1,7 @@
 import type { SubmittedDocument } from '../../attachments/types/SubmittedDocument'
 import type { DeferralQuery } from '../types/DeferralQuery'
 
-/** Every XV207A01 step `papeleo tgss aplazamiento` would take, with its values. */
+/** Every XV207A01 step `sedes tgss aplazamiento` would take, with its values. */
 export const mapDeferralPlan = (
   query: DeferralQuery,
   document: SubmittedDocument,

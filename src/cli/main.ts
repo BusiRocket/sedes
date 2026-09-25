@@ -13,7 +13,7 @@ export const main = async (): Promise<void> => {
     )
   } catch (error) {
     process.stderr.write(
-      `papeleo: ${error instanceof Error ? error.message : String(error)}\n`,
+      `sedes: ${error instanceof Error ? error.message : String(error)}\n`,
     )
     process.exitCode = exitFailure
   }
