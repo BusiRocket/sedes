@@ -1,0 +1,40 @@
+# TODO Log
+
+> Searchable record of closed project work. Active work lives in `TODO.md`.
+
+## 2026
+
+### 2026-09
+
+- [x] 2026-09-25 — **Backend:** Certificate HTTP client, Cl@ve relay and CLI
+      skeleton, then the AEAT, TGSS, DEHU and OARGT debt reads.
+  - Result: `sedes <portal> <action>` with JSON on stdout, zero runtime
+    dependencies, verified live on every holder the same day.
+  - Evidence: commits `867495e`, `5f03b02`, fixes from the live run in
+    `4043a2e`.
+
+- [x] 2026-09-25 — **Refactors:** Layout by portal, feature and kind.
+  - Result: 179 files moved, API and CLI unchanged.
+  - Evidence: commit `9ebb1a4`, `pnpm check:ci` green.
+
+- [x] 2026-09-25 — **Backend:** Read waves: AEAT pagos, declaraciones,
+      informativas and certificado censal; DEHU documents; TGSS vida laboral,
+      affiliation reports, bases and certificates; SEPE; OARGT amounts.
+  - Result: each verified live once on the holder's certificate.
+  - Evidence: commits `ee586c9`, `f26f614`.
+
+- [x] 2026-09-25 — **Infrastructure:** Repository moved from BusiRocket to
+      `InteliFactu/sedes`, Spanish README added.
+  - Evidence: commit `b4412e1`; GitHub redirects the old URL.
+
+- [x] 2026-09-26 — **Backend:** Write layer with plan mode, local PAdES and
+      XAdES signing, CIRBE, offline NIF validation and fiscal calendar.
+  - Result: 30 commands; writes act only with `--confirmar si`; no live act
+    executed.
+  - Evidence: commit `308dea4`, `pnpm check:ci` 457 files and 1010 tests
+    passing; signatures verified with openssl, pdfsig, qpdf and xmlsec1.
+
+- [-] 2026-09-26 — **Pending Decisions:** Rename to `papeleo`.
+  - Resolution: applied without the owner's approval in `9baee9b`, reverted in
+    `a1fb987` with the GitHub repository renamed back. The name stays open in
+    `TODO.md`.
