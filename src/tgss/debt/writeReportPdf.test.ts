@@ -14,11 +14,11 @@ describe('writeReportPdf', () => {
     dir = undefined
   })
 
-  it('writes the PDF under tgss-deuda-<nif>.pdf', async () => {
+  it('writes the PDF under the given file name', async () => {
     dir = await mkdtemp(join(tmpdir(), 'sedes-tgss-'))
     const pdf = Buffer.from('%PDF-1.4 fixture')
 
-    const filePath = await writeReportPdf(dir, '12345678Z', pdf)
+    const filePath = await writeReportPdf(dir, 'tgss-deuda-12345678Z.pdf', pdf)
 
     expect(filePath).toBe(join(dir, 'tgss-deuda-12345678Z.pdf'))
     // filePath is the path this same test just built under its own temp dir.

@@ -6,6 +6,12 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Fixed
+
+- Bodies that read as text (JSON, HTML) are no longer fed to `inflateRawSync`,
+  which accepted OARGT's pretty-printed JSON as a deflate stream and returned
+  one garbage byte.
+
 ### Added
 
 - Certificate-bearing HTTPS client with cookie jar, redirect handling,
@@ -29,3 +35,18 @@ All notable changes to this project are documented here. The format follows
   with retries on the portal's rate limit; no notification is opened.
 - Every portal is laid out by feature and by kind of file (`types/`,
   `fetchers/`, `parsers/`, `mappers/`, `selectors/`, `validators/`).
+- `aeat informativas`: informative returns filed for one modelo and ejercicio
+  (SCGI-DTRA, from 2020 on), with their CSV and the PDFs with `--out`.
+- `aeat certificado-censal`: the "certificado de situacion censal" (EMCE-JDIT),
+  emitted with the certificate's own identity and downloaded by CSV.
+- `tgss deuda --tipo total`: the total debt report next to the detailed one.
+- `tgss corriente`: the "certificado de estar al corriente" in its generic,
+  tender, subsidy and article 42 variants (AECPSED1 options 1, 2, 3 and 5).
+- `oargt recibos --importes`: today's amount per enforced receipt (principal,
+  surcharge, interest, costs, total) through the portal's `CALCULAR_IMP` call.
+- `tgss situacion`, `tgss nss`, `tgss datos`, `tgss alta`, `tgss empresario`:
+  the affiliation reports INAF0013, INAF0007, INAF0008, INAF0009 and INAF0005.
+- `tgss bases`: the "informe de bases y cuotas ingresadas" for one year
+  (AESRCUS3), with the monthly rows per régimen next to the PDF.
+- `sepe prestacion` and `sepe certificado`: the last unemployment benefit and
+  the "certificado de situacion" at the SEPE, through its Cl@ve relay.

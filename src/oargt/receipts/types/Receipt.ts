@@ -1,3 +1,4 @@
+import type { AmountToday } from './AmountToday'
 import type { ReceiptTab } from './ReceiptTab'
 
 /** One OARGT receipt row, already validated out of the portal's `dataset_DEUDAPENDIENTE` JSON. */
@@ -16,4 +17,6 @@ export type Receipt = {
   readonly enforced: boolean
   readonly voluntaryPeriod?: string | undefined
   readonly paid: boolean
+  /** Present on enforced receipts when the caller asked for today's amount and the portal answered. */
+  readonly amountToday?: AmountToday | undefined
 }

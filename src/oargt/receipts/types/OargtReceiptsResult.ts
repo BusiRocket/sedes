@@ -8,6 +8,7 @@ export type OargtReceiptsResult = {
     readonly voluntaria: number
     readonly ejecutiva: number
   }
-  readonly amountTodayAvailable: false
+  /** True when today's amounts were requested and every enforced receipt got one. */
+  readonly amountTodayAvailable: boolean
   readonly notes: readonly string[]
 }

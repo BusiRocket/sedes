@@ -68,6 +68,7 @@ describe('readTgssDebt', () => {
 
     expect(result).toEqual({
       nif: '12345678Z',
+      kind: 'detallado',
       hasDebt: false,
       message: 'NO SE HA ENCONTRADO DEUDA PARA EL IDENTIFICADOR SOLICITADO',
       notes: ['one emission per subject and day'],
@@ -103,6 +104,7 @@ describe('readTgssDebt', () => {
 
     expect(request).toHaveBeenCalledTimes(6)
     expect(result.hasDebt).toBe(true)
+    expect(result.kind).toBe('detallado')
     expect(result.pdfPath).toBe(join(dir, 'tgss-deuda-12345678Z.pdf'))
     expect(result.report).toEqual({
       totalExigible: '38,86',
@@ -141,5 +143,28 @@ describe('readTgssDebt', () => {
     expect(result.hasDebt).toBe(true)
     expect(result.pdfPath).toBeUndefined()
     expect(result.report).toBeUndefined()
+  })
+
+  it('posts option 6 and names the PDF tgss-deuda-total-<nif>.pdf for the total report', async () => {
+    const continuarXml =
+      '<ProsaXMLData><tipoEjecucion>O</tipoEjecucion></ProsaXMLData>'
+    const readyXml =
+      '<ProsaXMLData><DOCDocumento>1</DOCDocumento></ProsaXMLData>'
+    const request = vi
+      .fn<HttpClient['request']>()
+      .mockResolvedValueOnce(loginPages()[0] as HttpResponse)
+      .mockResolvedValueOnce(loginPages()[1] as HttpResponse)
+      .mockResolvedValueOnce(loginPages()[2] as HttpResponse)
+      .mockResolvedValueOnce(page(postFormUrl, prosaHtml('t1', continuarXml)))
+      .mockResolvedValueOnce(page(postFormUrl, prosaHtml('t2', readyXml)))
+      .mockResolvedValueOnce(page(viewDocUrl, '%PDF-1.4 fixture'))
+    const client: HttpClient = { request, cookie: () => 'S1' }
+    dir = await mkdtemp(join(tmpdir(), 'sedes-tgss-'))
+
+    const result = await readTgssDebt(client, '12345678Z', dir, 'total')
+
+    expect(request.mock.calls[3]?.[1]?.form?.['certificado']).toBe('6')
+    expect(result.kind).toBe('total')
+    expect(result.pdfPath).toBe(join(dir, 'tgss-deuda-total-12345678Z.pdf'))
   })
 })

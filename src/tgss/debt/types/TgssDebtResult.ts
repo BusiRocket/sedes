@@ -1,8 +1,10 @@
 import type { DebtReport } from './DebtReport'
+import type { DebtReportKind } from './DebtReportKind'
 
 /** The JSON `sedes tgss deuda` prints. */
 export type TgssDebtResult = {
   readonly nif: string
+  readonly kind: DebtReportKind
   readonly hasDebt: boolean
   readonly message?: string | undefined
   readonly pdfPath?: string | undefined
