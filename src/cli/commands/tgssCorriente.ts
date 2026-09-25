@@ -2,7 +2,7 @@ import { emitUpToDateCertificate } from '../../tgss/certificates/emitUpToDateCer
 import { validateCertificateKind } from '../../tgss/certificates/validators/validateCertificateKind'
 import type { Command } from '../types/Command'
 
-/** `sedes tgss corriente --nif <NIF> --tipo <kind> [--out <dir>]`: emit a "certificado de estar al corriente". */
+/** `papeleo tgss corriente --nif <NIF> --tipo <kind> [--out <dir>]`: emit a "certificado de estar al corriente". */
 export const tgssCorriente: Command = {
   portal: 'tgss',
   action: 'corriente',

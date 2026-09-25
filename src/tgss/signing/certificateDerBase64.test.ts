@@ -11,14 +11,14 @@ describe('certificateDerBase64', () => {
     const der = certificateDerBase64(identity)
     expect(der).not.toMatch(/\s/)
     expect(new X509Certificate(Buffer.from(der, 'base64')).subject).toContain(
-      'SEDES TEST',
+      'PAPELEO TEST',
     )
   })
 
   it('strips the Bag Attributes a PKCS#12 export puts around the block', () => {
     const identity = buildTestIdentity()
     const bagged = Buffer.from(
-      `Bag Attributes\n    localKeyID: 01 02\nsubject=/CN=SEDES TEST\n${identity.cert.toString('utf8')}`,
+      `Bag Attributes\n    localKeyID: 01 02\nsubject=/CN=PAPELEO TEST\n${identity.cert.toString('utf8')}`,
     )
     expect(certificateDerBase64({ ...identity, cert: bagged })).toBe(
       certificateDerBase64(identity),

@@ -8,7 +8,7 @@ import { writeRiskReportPdf } from './writeRiskReportPdf'
 
 describe('writeRiskReportPdf', () => {
   it('creates the directory and writes the PDF', async () => {
-    const dir = join(await mkdtemp(join(tmpdir(), 'sedes-cirbe-')), 'out')
+    const dir = join(await mkdtemp(join(tmpdir(), 'papeleo-cirbe-')), 'out')
 
     const path = await writeRiskReportPdf(dir, 'r.pdf', Buffer.from('%PDF-1'))
 

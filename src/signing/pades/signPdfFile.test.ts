@@ -12,7 +12,7 @@ describe('signPdfFile', () => {
   const identity = buildTestIdentity('ANA')
 
   it('writes the signed copy and reports it', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'sedes-pades-'))
+    const dir = await mkdtemp(join(tmpdir(), 'papeleo-pades-'))
     const input = join(dir, 'in.pdf')
     const output = join(dir, 'out.pdf')
     // eslint-disable-next-line security/detect-non-literal-fs-filename -- a temporary test directory

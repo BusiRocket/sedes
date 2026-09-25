@@ -15,7 +15,7 @@ describe('writeReportPdf', () => {
   })
 
   it('writes the PDF under the given file name', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'sedes-tgss-'))
+    dir = await mkdtemp(join(tmpdir(), 'papeleo-tgss-'))
     const pdf = Buffer.from('%PDF-1.4 fixture')
 
     const filePath = await writeReportPdf(dir, 'tgss-deuda-12345678Z.pdf', pdf)

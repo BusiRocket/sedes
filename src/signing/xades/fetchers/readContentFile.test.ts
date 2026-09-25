@@ -9,7 +9,7 @@ import { readContentFile } from './readContentFile'
 
 describe('readContentFile', () => {
   it('reads the file bytes', async () => {
-    const path = join(mkdtempSync(join(tmpdir(), 'sedes-read-')), 'a.xml')
+    const path = join(mkdtempSync(join(tmpdir(), 'papeleo-read-')), 'a.xml')
     writeFileSync(path, '<a/>')
     await expect(readContentFile(path)).resolves.toEqual(Buffer.from('<a/>'))
   })

@@ -10,7 +10,7 @@ describe('buildSigningCertificate', () => {
     const context = buildTestSignatureContext()
     const digest = sha256Base64(context.certificates.signer.raw)
     expect(renderTestElement(buildSigningCertificate(context))).toBe(
-      `<xades:SigningCertificate><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></ds:DigestMethod><ds:DigestValue>${digest}</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>CN=SEDES TEST</ds:X509IssuerName><ds:X509SerialNumber>74565</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate>`,
+      `<xades:SigningCertificate><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></ds:DigestMethod><ds:DigestValue>${digest}</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>CN=PAPELEO TEST</ds:X509IssuerName><ds:X509SerialNumber>74565</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate>`,
     )
   })
   it('writes V2 with the CertDigest only', () => {

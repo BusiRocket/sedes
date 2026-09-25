@@ -23,7 +23,7 @@ const sleep = vi.fn<Sleep>().mockResolvedValue(undefined)
 
 describe('downloadNotificationFile', () => {
   it('saves a 200 answer and reports its size', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'sedes-dehu-'))
+    const dir = await mkdtemp(join(tmpdir(), 'papeleo-dehu-'))
     const request = vi
       .fn<HttpClient['request']>()
       .mockResolvedValue(answer(200, { content: 'JVBERg==', name: 'acto.pdf' }))

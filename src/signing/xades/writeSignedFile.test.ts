@@ -9,7 +9,7 @@ import { writeSignedFile } from './writeSignedFile'
 
 describe('writeSignedFile', () => {
   it('writes a new file and never overwrites one', async () => {
-    const path = join(mkdtempSync(join(tmpdir(), 'sedes-write-')), 'a.xsig')
+    const path = join(mkdtempSync(join(tmpdir(), 'papeleo-write-')), 'a.xsig')
     await writeSignedFile(path, Buffer.from('one'))
     expect(readFileSync(path, 'utf8')).toBe('one')
     await expect(writeSignedFile(path, Buffer.from('two'))).rejects.toThrow(

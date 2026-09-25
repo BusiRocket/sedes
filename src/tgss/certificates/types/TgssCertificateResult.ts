@@ -1,6 +1,6 @@
 import type { CertificateKind } from './CertificateKind'
 
-/** The JSON `sedes tgss corriente` prints. */
+/** The JSON `papeleo tgss corriente` prints. */
 export type TgssCertificateResult = {
   readonly nif: string
   readonly kind: CertificateKind

@@ -53,7 +53,7 @@ describe('emitSituationCertificate', () => {
   })
 
   it('plays kind, confirmation and download with Latin-1 bodies and writes the PDF', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'sedes-sepe-'))
+    dir = await mkdtemp(join(tmpdir(), 'papeleo-sepe-'))
     vi.mocked(loginWithCertificate).mockResolvedValueOnce(
       page(`${sede}CertificadosPrestaWeb.do`, chooserHtml),
     )

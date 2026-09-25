@@ -1,6 +1,6 @@
 import type { NifKind } from './NifKind'
 
-/** The answer of `sedes validar nif`. */
+/** The answer of `papeleo validar nif`. */
 export type NifValidation = {
   /** What was typed. */
   readonly valor: string

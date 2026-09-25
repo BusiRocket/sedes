@@ -1,7 +1,7 @@
 import { sweepAeatDebts } from '../../aeat/debts/sweepAeatDebts'
 import type { Command } from '../types/Command'
 
-/** `sedes aeat deudas --nif <NIF>`: pending debts, detail and SRAF agreements. */
+/** `papeleo aeat deudas --nif <NIF>`: pending debts, detail and SRAF agreements. */
 export const aeatDeudas: Command = {
   portal: 'aeat',
   action: 'deudas',

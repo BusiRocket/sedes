@@ -2,7 +2,7 @@ import type { SignXmlFileRequest } from '../types/SignXmlFileRequest'
 import { validateSignXmlPolicyName } from './validateSignXmlPolicyName'
 import { validateXadesMode } from './validateXadesMode'
 
-/** Check the `sedes firmar xml` options before touching any file. */
+/** Check the `papeleo firmar xml` options before touching any file. */
 export const validateSignXmlQuery = (
   options: Readonly<Record<string, string | undefined>>,
 ): SignXmlFileRequest => {

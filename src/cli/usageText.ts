@@ -5,9 +5,9 @@ import type { Command } from './types/Command'
 /** The help text: one line per command plus the global options. */
 export const usageText = (commands: readonly Command[]): string =>
   [
-    'sedes - client for the Spanish public administration portals, with your own certificate',
+    'papeleo - client for the Spanish public administration portals, with your own certificate',
     '',
-    'usage: sedes <portal> <action> [--cert cert.pem --key key.pem] [--out dir] [options]',
+    'usage: papeleo <portal> <action> [--cert cert.pem --key key.pem] [--out dir] [options]',
     '',
     ...commands.map(
       (command) =>
@@ -21,6 +21,6 @@ export const usageText = (commands: readonly Command[]): string =>
           : ''),
     ),
     '',
-    'The certificate and key are PEM files, also read from SEDES_CERT and SEDES_KEY.',
+    'The certificate and key are PEM files, also read from PAPELEO_CERT and PAPELEO_KEY.',
     'Reads are the default. A [WRITE] command only prepares and prints its plan unless --confirmar si is given.',
   ].join('\n')

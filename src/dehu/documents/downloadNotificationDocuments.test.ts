@@ -48,7 +48,7 @@ const noSleep = () => vi.fn<Sleep>().mockResolvedValue(undefined)
 
 describe('downloadNotificationDocuments', () => {
   it('downloads document and voucher of every realized notification, pacing between them', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'sedes-dehu-'))
+    const dir = await mkdtemp(join(tmpdir(), 'papeleo-dehu-'))
     const request = stubRequest([
       realizedItem('N1', 'R1'),
       realizedItem('N2', 'R2'),
@@ -79,7 +79,7 @@ describe('downloadNotificationDocuments', () => {
   })
 
   it('narrows to the requested identifiers and notes the ones not found', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'sedes-dehu-'))
+    const dir = await mkdtemp(join(tmpdir(), 'papeleo-dehu-'))
     const request = stubRequest([
       realizedItem('N1', 'R1'),
       realizedItem('N2', 'R2'),
@@ -116,7 +116,7 @@ describe('downloadNotificationDocuments', () => {
   })
 
   it('never requests anything under the pending notifications resource', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'sedes-dehu-'))
+    const dir = await mkdtemp(join(tmpdir(), 'papeleo-dehu-'))
     const request = stubRequest([realizedItem('N1', 'R1')])
     const client: HttpClient = { request, cookie: () => undefined }
 

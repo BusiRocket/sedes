@@ -9,7 +9,7 @@ import { buildTestIdentity } from '../fixtures/buildTestIdentity'
 import { signXmlFile } from './signXmlFile'
 
 describe('signXmlFile', () => {
-  const dir = mkdtempSync(join(tmpdir(), 'sedes-sign-'))
+  const dir = mkdtempSync(join(tmpdir(), 'papeleo-sign-'))
   const input = join(dir, 'factura.xml')
   writeFileSync(input, '<Facturae/>')
   const identity = buildTestIdentity()
@@ -26,7 +26,7 @@ describe('signXmlFile', () => {
       mode: 'enveloped',
       policy: 'facturae',
       bytes: written.length,
-      signer: 'CN=SEDES TEST',
+      signer: 'CN=PAPELEO TEST',
       notes: [],
     })
     expect(written.toString()).toContain('politica_de_firma_formato_facturae')

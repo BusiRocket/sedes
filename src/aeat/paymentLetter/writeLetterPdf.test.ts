@@ -8,7 +8,7 @@ import { writeLetterPdf } from './writeLetterPdf'
 
 describe('writeLetterPdf', () => {
   it('writes aeat-010-<justificante>.pdf', async () => {
-    const outDir = join(await mkdtemp(join(tmpdir(), 'sedes-010-')), 'o')
+    const outDir = join(await mkdtemp(join(tmpdir(), 'papeleo-010-')), 'o')
     const path = await writeLetterPdf(
       outDir,
       '100000000000A',

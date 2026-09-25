@@ -34,7 +34,7 @@ const portal = (csv: string): ReturnType<typeof vi.fn<HttpClient['request']>> =>
 describe('performAppearance', () => {
   it('signs, then saves the act and the acuse', async () => {
     const request = portal('ABCDEFGH12345678')
-    const outDir = await mkdtemp(join(tmpdir(), 'sedes-perform-'))
+    const outDir = await mkdtemp(join(tmpdir(), 'papeleo-perform-'))
     const receipt = await performAppearance(
       { request, cookie: () => undefined },
       '00000000t',
@@ -61,7 +61,7 @@ describe('performAppearance', () => {
       '1',
     )
     expect(withoutOut.actoPath).toBeUndefined()
-    const outDir = await mkdtemp(join(tmpdir(), 'sedes-perform-'))
+    const outDir = await mkdtemp(join(tmpdir(), 'papeleo-perform-'))
     const withoutCsv = await performAppearance(
       { request: portal(''), cookie: () => undefined },
       '00000000T',

@@ -1,4 +1,4 @@
-/** What `sedes tgss adjuntar` asks for: one PDF added to one CEUS expediente. */
+/** What `papeleo tgss adjuntar` asks for: one PDF added to one CEUS expediente. */
 export type AttachmentQuery = {
   readonly expediente: string
   readonly documento: string
