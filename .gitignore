@@ -5,3 +5,11 @@ coverage/
 .turbo/
 .DS_Store
 *.local
+
+# Certificate material never enters the repository.
+*.pem
+*.p12
+*.pfx
+*.key
+*.crt
+*.cer
