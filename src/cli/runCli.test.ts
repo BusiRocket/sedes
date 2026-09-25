@@ -4,9 +4,9 @@ import { join } from 'node:path'
 
 import { describe, expect, it } from 'vitest'
 
-import type { Command } from './Command'
 import { parseCliOptions } from './parseCliOptions'
 import { runCli } from './runCli'
+import type { Command } from './types/Command'
 
 const echo: Command = {
   portal: 'demo',

@@ -2,7 +2,7 @@ import type { IncomingMessage } from 'node:http'
 
 import type { CookieJar } from './CookieJar'
 import { decodeBody } from './decodeBody'
-import type { HttpResponse } from './HttpResponse'
+import type { HttpResponse } from './types/HttpResponse'
 
 /** Drain one response, store its cookies for the host and decode the body. */
 export const collectResponse = async (

@@ -1,7 +1,7 @@
 import { loadCertificateIdentity } from '../certificate/loadCertificateIdentity'
 import { createHttpClient } from '../http/createHttpClient'
-import type { Command } from './Command'
 import { parseCliOptions } from './parseCliOptions'
+import type { Command } from './types/Command'
 import { usageText } from './usageText'
 
 /**

@@ -1,7 +1,7 @@
-import { parseFirstForm } from '../html/parseFirstForm'
-import type { HttpClient } from '../http/HttpClient'
-import type { HttpResponse } from '../http/HttpResponse'
+import { parseFirstForm } from '../html/parsers/parseFirstForm'
 import { postForm } from '../http/postForm'
+import type { HttpClient } from '../http/types/HttpClient'
+import type { HttpResponse } from '../http/types/HttpResponse'
 
 /**
  * Walk a SAML relay: while the page is an auto-submitting form (all fields

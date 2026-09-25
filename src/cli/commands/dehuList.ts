@@ -1,7 +1,7 @@
-import { listNotifications } from '../../dehu/listNotifications'
-import type { HttpClient } from '../../http/HttpClient'
-import type { CliOptions } from '../CliOptions'
-import type { Command } from '../Command'
+import { listNotifications } from '../../dehu/notifications/listNotifications'
+import type { HttpClient } from '../../http/types/HttpClient'
+import type { CliOptions } from '../types/CliOptions'
+import type { Command } from '../types/Command'
 
 /** `sedes dehu list`: the holder's pending and realized DEHU notifications, listing only. */
 export const dehuList: Command = {

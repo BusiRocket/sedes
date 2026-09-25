@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises'
 
-import type { CertificateIdentity } from './CertificateIdentity'
+import type { CertificateIdentity } from './types/CertificateIdentity'
 
 /**
  * Read the certificate and key from explicit paths, falling back to the

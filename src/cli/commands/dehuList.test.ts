@@ -1,10 +1,10 @@
 import { describe, expect, it, vi } from 'vitest'
 
-import { listNotifications } from '../../dehu/listNotifications'
-import type { HttpClient } from '../../http/HttpClient'
+import { listNotifications } from '../../dehu/notifications/listNotifications'
+import type { HttpClient } from '../../http/types/HttpClient'
 import { dehuList } from './dehuList'
 
-vi.mock('../../dehu/listNotifications')
+vi.mock('../../dehu/notifications/listNotifications')
 
 const client: HttpClient = { request: vi.fn(), cookie: () => undefined }
 

@@ -1,10 +1,10 @@
-import type { CertificateIdentity } from '../certificate/CertificateIdentity'
+import type { CertificateIdentity } from '../certificate/types/CertificateIdentity'
 import { CookieJar } from './CookieJar'
-import type { HttpClient } from './HttpClient'
-import type { HttpRequestOptions } from './HttpRequestOptions'
-import type { HttpResponse } from './HttpResponse'
 import { performRequest } from './performRequest'
 import { redirectTarget } from './redirectTarget'
+import type { HttpClient } from './types/HttpClient'
+import type { HttpRequestOptions } from './types/HttpRequestOptions'
+import type { HttpResponse } from './types/HttpResponse'
 
 /**
  * Build the client one holder uses against every portal: the certificate is

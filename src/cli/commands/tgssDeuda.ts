@@ -1,5 +1,5 @@
-import { readTgssDebt } from '../../tgss/readTgssDebt'
-import type { Command } from '../Command'
+import { readTgssDebt } from '../../tgss/debt/readTgssDebt'
+import type { Command } from '../types/Command'
 
 /** `sedes tgss deuda --nif <NIF> [--out <dir>]`: emit and read the TGSS "informe de deuda exigible". */
 export const tgssDeuda: Command = {

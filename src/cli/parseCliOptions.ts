@@ -1,7 +1,7 @@
 import { parseArgs } from 'node:util'
 
-import type { CliOptions } from './CliOptions'
 import { globalCliOptions } from './globalCliOptions'
+import type { CliOptions } from './types/CliOptions'
 
 /** Parse the `--name value` options of a command; unknown options are an error. */
 export const parseCliOptions = (

@@ -1,10 +1,10 @@
 import { describe, expect, it, vi } from 'vitest'
 
-import { sweepAeatDebts } from '../../aeat/sweepAeatDebts'
-import type { HttpClient } from '../../http/HttpClient'
+import { sweepAeatDebts } from '../../aeat/debts/sweepAeatDebts'
+import type { HttpClient } from '../../http/types/HttpClient'
 import { aeatDeudas } from './aeatDeudas'
 
-vi.mock('../../aeat/sweepAeatDebts', () => ({ sweepAeatDebts: vi.fn() }))
+vi.mock('../../aeat/debts/sweepAeatDebts', () => ({ sweepAeatDebts: vi.fn() }))
 
 const client: HttpClient = { request: vi.fn(), cookie: () => undefined }
 

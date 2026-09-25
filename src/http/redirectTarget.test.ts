@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import type { HttpResponse } from './HttpResponse'
 import { redirectTarget } from './redirectTarget'
+import type { HttpResponse } from './types/HttpResponse'
 
 const requestUrl = 'https://a.example/x'
 

@@ -1,7 +1,7 @@
-import type { HtmlForm } from '../html/HtmlForm'
-import type { HttpClient } from './HttpClient'
-import type { HttpRequestOptions } from './HttpRequestOptions'
-import type { HttpResponse } from './HttpResponse'
+import type { HtmlForm } from '../html/types/HtmlForm'
+import type { HttpClient } from './types/HttpClient'
+import type { HttpRequestOptions } from './types/HttpRequestOptions'
+import type { HttpResponse } from './types/HttpResponse'
 
 /** Submit a parsed form, optionally overriding or adding fields, as the browser's auto-submit would. */
 export const postForm = async (

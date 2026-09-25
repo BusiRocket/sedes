@@ -1,6 +1,6 @@
 import { browserUserAgent } from './browserUserAgent'
 import type { CookieJar } from './CookieJar'
-import type { HttpRequestOptions } from './HttpRequestOptions'
+import type { HttpRequestOptions } from './types/HttpRequestOptions'
 
 /** The headers one request sends: a browser's defaults, the jar's cookies, the referer and the body framing. */
 export const buildRequestHeaders = (

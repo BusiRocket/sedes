@@ -1,5 +1,5 @@
-import { listOargtReceipts } from '../../oargt/listOargtReceipts'
-import type { Command } from '../Command'
+import { listOargtReceipts } from '../../oargt/receipts/listOargtReceipts'
+import type { Command } from '../types/Command'
 
 /** `sedes oargt recibos [--include paid]`: the OARGT (Diputación de Cáceres) receipt lists. */
 export const oargtRecibos: Command = {

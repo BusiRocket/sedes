@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 
-import type { HttpClient } from '../http/HttpClient'
-import type { HttpResponse } from '../http/HttpResponse'
+import type { HttpClient } from '../http/types/HttpClient'
+import type { HttpResponse } from '../http/types/HttpResponse'
 import { followAutoSubmitForms } from './followAutoSubmitForms'
 
 const page = (url: string, text: string): HttpResponse => ({

@@ -2,12 +2,12 @@ import { once } from 'node:events'
 import type { IncomingMessage } from 'node:http'
 import { request as httpsRequest } from 'node:https'
 
-import type { CertificateIdentity } from '../certificate/CertificateIdentity'
+import type { CertificateIdentity } from '../certificate/types/CertificateIdentity'
 import { buildRequestHeaders } from './buildRequestHeaders'
 import { collectResponse } from './collectResponse'
 import type { CookieJar } from './CookieJar'
-import type { HttpRequestOptions } from './HttpRequestOptions'
-import type { HttpResponse } from './HttpResponse'
+import type { HttpRequestOptions } from './types/HttpRequestOptions'
+import type { HttpResponse } from './types/HttpResponse'
 
 /** One HTTPS exchange with the client certificate offered to the host; redirects are the caller's. */
 export const performRequest = async (

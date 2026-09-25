@@ -1,8 +1,8 @@
 import { describe, expect, it, vi } from 'vitest'
 
 import { createHttpClient } from './createHttpClient'
-import type { HttpResponse } from './HttpResponse'
 import { performRequest } from './performRequest'
+import type { HttpResponse } from './types/HttpResponse'
 
 // The transport is stubbed here so the redirect and cookie logic is exercised
 // alone; the real TLS exchange has its own test next to performRequest.

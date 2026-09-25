@@ -1,4 +1,4 @@
-import type { HttpResponse } from './HttpResponse'
+import type { HttpResponse } from './types/HttpResponse'
 
 /** The absolute URL a 3xx response points to, or undefined when the response is not a redirect. */
 export const redirectTarget = (

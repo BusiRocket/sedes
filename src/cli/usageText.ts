@@ -1,4 +1,4 @@
-import type { Command } from './Command'
+import type { Command } from './types/Command'
 
 /** The help text: one line per command plus the global options. */
 export const usageText = (commands: readonly Command[]): string =>

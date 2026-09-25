@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 
-import type { HttpClient } from '../../http/HttpClient'
+import type { HttpClient } from '../../http/types/HttpClient'
 import { tgssDeuda } from './tgssDeuda'
 
 describe('tgssDeuda', () => {
