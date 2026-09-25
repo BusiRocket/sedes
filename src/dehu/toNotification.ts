@@ -8,6 +8,7 @@ export const toNotification = (
   item: NotificationApiItem,
   extra: {
     readonly state: NotificationState
+    readonly rawState?: string | undefined
     readonly expiresAt?: string | undefined
   },
 ): Notification => ({
@@ -19,6 +20,7 @@ export const toNotification = (
   createdAt: item.availabilityDate,
   expiresAt: extra.expiresAt,
   state: extra.state,
+  rawState: extra.rawState,
   kind: undefined,
   source: notificationSourceFromIssuer(item.emitterEntity),
 })

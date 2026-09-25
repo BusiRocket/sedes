@@ -26,7 +26,7 @@ describe('dehuList', () => {
     await dehuList.run(client, {})
     expect(listNotifications).toHaveBeenCalledWith(client, {
       state: 'pending',
-      year: undefined,
+      year: new Date().getFullYear(),
     })
   })
 
@@ -50,13 +50,12 @@ describe('dehuList', () => {
     )
   })
 
-  it('requires --year for realized and all', async () => {
-    await expect(dehuList.run(client, { state: 'realized' })).rejects.toThrow(
-      '--year is required',
-    )
-    await expect(dehuList.run(client, { state: 'all' })).rejects.toThrow(
-      '--year is required',
-    )
+  it('defaults --year to the current year for realized and all', async () => {
+    await dehuList.run(client, { state: 'realized' })
+    expect(listNotifications).toHaveBeenLastCalledWith(client, {
+      state: 'realized',
+      year: new Date().getFullYear(),
+    })
   })
 
   it('rejects a non-integer year', async () => {

@@ -8,5 +8,8 @@ export const parseRealizedNotificationPage = (
   json: unknown,
 ): readonly Notification[] =>
   notificationApiItems(json).map((item) =>
-    toNotification(item, { state: notificationStateFromRaw(item.state) }),
+    toNotification(item, {
+      state: notificationStateFromRaw(item.state),
+      rawState: item.state,
+    }),
   )

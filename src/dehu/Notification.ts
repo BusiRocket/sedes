@@ -12,6 +12,8 @@ export type Notification = {
   readonly createdAt: string
   readonly expiresAt?: string | undefined
   readonly state: NotificationState
+  /** The portal's own state value, for states the listing folds into `other`. */
+  readonly rawState?: string | undefined
   readonly kind?: NotificationKind | undefined
   readonly source?: NotificationSource | undefined
 }

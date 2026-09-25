@@ -26,25 +26,25 @@ describe('parseRealizedNotificationPage', () => {
         createdAt: '2026-02-05T17:23:19+01:00',
         expiresAt: undefined,
         state: 'compareced',
+        rawState: 'ACEPTADA',
         kind: undefined,
         source: 'aeat',
       },
     ])
   })
 
-  it('rejects an unrecognized raw state', () => {
-    expect(() =>
-      parseRealizedNotificationPage({
-        items: [
-          {
-            identifier: 'X',
-            concept: 'C',
-            emitterEntity: 'E',
-            availabilityDate: '2026-01-01T00:00:00+01:00',
-            state: 'BOGUS',
-          },
-        ],
-      }),
-    ).toThrow(/unrecognized realized notification state/)
+  it('keeps an unrecognized raw state as other, with the raw value', () => {
+    const [item] = parseRealizedNotificationPage({
+      items: [
+        {
+          identifier: 'X',
+          concept: 'C',
+          emitterEntity: 'E',
+          availabilityDate: '2026-01-01T00:00:00+01:00',
+          state: 'BOGUS',
+        },
+      ],
+    })
+    expect(item).toMatchObject({ state: 'other', rawState: 'BOGUS' })
   })
 })

@@ -95,4 +95,18 @@ describe('sweepAeatDebts', () => {
     expect(report.totals).toEqual({ pendiente: 0, aIngresar: 0 })
     expect(report.hint).toBe('No existen deudas para mostrar')
   })
+
+  it('refuses a page that is neither a debt list nor the no-debts notice', async () => {
+    const request = vi.fn<HttpClient['request']>().mockResolvedValue({
+      status: 200,
+      url: 'https://www1.agenciatributaria.gob.es/wlpl/SRVO-JDIT/ConsultaDdas',
+      headers: {},
+      body: Buffer.alloc(0),
+      text: '<html><body><p>Acceso no autorizado</p></body></html>',
+    })
+    const client: HttpClient = { request, cookie: () => undefined }
+    await expect(sweepAeatDebts(client, 'B12345678')).rejects.toThrow(
+      'unexpected page instead of the debt list',
+    )
+  })
 })

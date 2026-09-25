@@ -15,10 +15,9 @@ export const dehuList: Command = {
     if (rawState !== 'pending' && rawState !== 'realized' && rawState !== 'all')
       throw new Error('--state must be one of pending, realized, all')
     const rawYear = options['year']
-    if (rawYear === undefined && rawState !== 'pending')
-      throw new Error('--year is required for --state realized or --state all')
-    const year = rawYear === undefined ? undefined : Number(rawYear)
-    if (year !== undefined && !Number.isInteger(year))
+    const year =
+      rawYear === undefined ? new Date().getFullYear() : Number(rawYear)
+    if (!Number.isInteger(year))
       throw new Error('--year must be a whole year number, e.g. 2026')
     return listNotifications(client, { state: rawState, year })
   },

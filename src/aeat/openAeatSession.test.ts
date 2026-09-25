@@ -18,4 +18,18 @@ describe('openAeatSession', () => {
       'https://www1.agenciatributaria.gob.es/wlpl/BUGC-JDIT/MdcAcceso',
     )
   })
+
+  it('refuses a session the portal answers with anything but 200', async () => {
+    const request = vi.fn<HttpClient['request']>().mockResolvedValue({
+      status: 403,
+      url: 'https://www1.agenciatributaria.gob.es/wlpl/BUGC-JDIT/MdcAcceso',
+      headers: {},
+      body: Buffer.alloc(0),
+      text: '',
+    })
+    const client: HttpClient = { request, cookie: () => undefined }
+    await expect(openAeatSession(client)).rejects.toThrow(
+      'session refused (HTTP 403)',
+    )
+  })
 })

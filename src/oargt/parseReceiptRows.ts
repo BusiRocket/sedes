@@ -22,7 +22,9 @@ export const parseReceiptRows = (
     if (typeof row !== 'object' || row === null || Array.isArray(row)) return []
     const record = row as Readonly<Record<string, unknown>>
     const typeName = readStringField(record, 'intypename')
-    const detail = readStringField(record, 'otribdesc')
+    // The portal renders an absent detail as "()".
+    const rawDetail = readStringField(record, 'otribdesc')
+    const detail = rawDetail === '()' ? '' : rawDetail
     const period = readStringField(record, 'periodoVoluntarioReal')
     const paseje = readStringField(record, 'paseje')
     const number = readStringField(record, 'render_recnumber')
