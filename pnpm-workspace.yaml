@@ -1,0 +1,4 @@
+# pnpm 11+: build scripts run only for the dependencies listed here.
+allowBuilds:
+  lefthook: true
+  unrs-resolver: true
