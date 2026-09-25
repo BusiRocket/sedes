@@ -1,14 +1,24 @@
+import { aeatCartaPago } from './commands/aeatCartaPago'
 import { aeatCertificadoCensal } from './commands/aeatCertificadoCensal'
+import { aeatComparecer } from './commands/aeatComparecer'
 import { aeatDeclaraciones } from './commands/aeatDeclaraciones'
 import { aeatDeudas } from './commands/aeatDeudas'
+import { aeatDomicilio } from './commands/aeatDomicilio'
 import { aeatInformativas } from './commands/aeatInformativas'
 import { aeatPagos } from './commands/aeatPagos'
+import { calendarioFiscal } from './commands/calendarioFiscal'
+import { cirbeEstado } from './commands/cirbeEstado'
+import { cirbeInforme } from './commands/cirbeInforme'
 import { dehuDocumentos } from './commands/dehuDocumentos'
 import { dehuList } from './commands/dehuList'
+import { firmarPdf } from './commands/firmarPdf'
+import { firmarXml } from './commands/firmarXml'
 import { oargtRecibos } from './commands/oargtRecibos'
 import { sepeCertificado } from './commands/sepeCertificado'
 import { sepePrestacion } from './commands/sepePrestacion'
+import { tgssAdjuntar } from './commands/tgssAdjuntar'
 import { tgssAlta } from './commands/tgssAlta'
+import { tgssAplazamiento } from './commands/tgssAplazamiento'
 import { tgssBases } from './commands/tgssBases'
 import { tgssCorriente } from './commands/tgssCorriente'
 import { tgssDatos } from './commands/tgssDatos'
@@ -17,6 +27,7 @@ import { tgssEmpresario } from './commands/tgssEmpresario'
 import { tgssNss } from './commands/tgssNss'
 import { tgssSituacion } from './commands/tgssSituacion'
 import { tgssVidaLaboral } from './commands/tgssVidaLaboral'
+import { validarNif } from './commands/validarNif'
 import type { Command } from './types/Command'
 
 export const commandRegistry: readonly Command[] = [
@@ -25,6 +36,9 @@ export const commandRegistry: readonly Command[] = [
   aeatDeclaraciones,
   aeatInformativas,
   aeatCertificadoCensal,
+  aeatComparecer,
+  aeatCartaPago,
+  aeatDomicilio,
   tgssDeuda,
   tgssCorriente,
   tgssVidaLaboral,
@@ -34,9 +48,17 @@ export const commandRegistry: readonly Command[] = [
   tgssAlta,
   tgssEmpresario,
   tgssBases,
+  tgssAplazamiento,
+  tgssAdjuntar,
   dehuList,
   dehuDocumentos,
   oargtRecibos,
   sepePrestacion,
   sepeCertificado,
+  cirbeInforme,
+  cirbeEstado,
+  firmarPdf,
+  firmarXml,
+  validarNif,
+  calendarioFiscal,
 ]

@@ -2,12 +2,14 @@
 
 [Read in English](README.md)
 
-Cliente de línea de comandos, de solo lectura, para las sedes electrónicas de la
-administración española, con tu propio certificado digital. Un binario, una
-respuesta JSON por sede: deudas, pagos, modelos presentados, notificaciones,
-informes de la Seguridad Social y prestaciones del SEPE, sin abrir el navegador.
-Lo mantiene [InteliFactu](https://intelifactu.com), que lo usa para tener al día
-la parte de la administración en la contabilidad de sus clientes.
+Cliente de línea de comandos para las sedes electrónicas de la administración
+española, con tu propio certificado digital. Un binario, una respuesta JSON por
+sede: deudas, pagos, modelos presentados, notificaciones, informes de la
+Seguridad Social, prestaciones del SEPE y el informe CIRBE, sin abrir el
+navegador. Por defecto solo lee; también firma PDF y XML en local, y prepara o
+ejecuta los trámites de "Escritura" solo cuando los confirmas. Lo mantiene
+[InteliFactu](https://intelifactu.com), que lo usa para tener al día la parte de
+la administración en la contabilidad de sus clientes.
 
 | Comando                                                                                             | Sede                                          | Qué lee                                                                     |
 | --------------------------------------------------------------------------------------------------- | --------------------------------------------- | --------------------------------------------------------------------------- |
@@ -30,6 +32,40 @@ la parte de la administración en la contabilidad de sus clientes.
 | `sedes oargt recibos [--include paid] [--importes hoy]`                                             | OARGT, Diputación de Cáceres                  | Recibos en voluntaria y en ejecutiva, con el importe a día de hoy           |
 | `sedes sepe prestacion`                                                                             | SEPE                                          | La última prestación: fechas, días de derecho, consumidos y restantes       |
 | `sedes sepe certificado --out d`                                                                    | SEPE                                          | El certificado de situación de prestaciones en PDF (lo emite)               |
+| `sedes cirbe informe --nacimiento DD-MM-AAAA --email e`                                             | Banco de España (CIRBE)                       | Pide tu informe de riesgos (lo emite)                                       |
+| `sedes cirbe estado [--out d]`                                                                      | CIRBE                                         | Lista tus peticiones y descarga los PDF listos                              |
+
+## Escritura
+
+Los comandos de escritura actúan ante la administración. Sin `--confirmar si`
+solo hacen la preparación de lectura (sesión, listados, validación) e imprimen
+el plan: cada petición que enviarían, con sus valores. Con `--confirmar si` la
+ejecutan y devuelven el justificante. Se detienen antes del acto si algo no
+cuadra con lo leído (titular, importe, documento).
+
+| Comando                                                                              | Sede | Trámite                                                                            |
+| ------------------------------------------------------------------------------------ | ---- | ---------------------------------------------------------------------------------- |
+| `sedes aeat comparecer --nif <NIF> --id <n> [--out d]`                               | AEAT | Comparece en una notificación de la sede de la AEAT; los plazos empiezan ese día   |
+| `sedes aeat carta-pago --nif <NIF> --clave K --importe n,nn [--out d]`               | AEAT | Genera una carta de pago parcial (modelo 010); pagarla es otro paso, en el banco   |
+| `sedes aeat domicilio --nif <NIF> --codigo-postal ... --via ... [...]`               | AEAT | Presenta el 036 de cambio de domicilio fiscal (personas jurídicas)                 |
+| `sedes tgss aplazamiento --nif <NIF> --plazos n --garantia exenta --documento f.pdf` | TGSS | Solicita un aplazamiento (XV207A01). De momento solo plan: falta capturar la firma |
+| `sedes tgss adjuntar --expediente n --documento f.pdf --tipo t`                      | TGSS | Adjunta un documento a un expediente. De momento solo plan, por lo mismo           |
+
+## Firma
+
+| Comando                                                                                                           | Qué hace                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `sedes firmar pdf --in f.pdf --out g.pdf [--visible si] [--motivo texto]`                                         | Firma PAdES-B-B (ETSI.CAdES.detached) por actualización incremental; válida en Acrobat, pdfsig y openssl |
+| `sedes firmar xml --in f.xml --out g.xml [--modo enveloped\|enveloping\|detached] [--politica facturae\|ninguna]` | XAdES-BES/EPES con SHA-256 y la forma de AutoFirma; verificada con xmlsec1                               |
+
+Las dos firman en tu máquina con el certificado y la clave que indiques.
+
+## Utilidades sin certificado
+
+| Comando                                                                  | Qué hace                                                                                              |
+| ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| `sedes validar nif --nif X`                                              | Valida un DNI, NIE, NIF especial o NIF de persona jurídica y dice de qué tipo es                      |
+| `sedes calendario fiscal --ejercicio 2026 [--modelo 303] [--periodo 3T]` | Plazos de presentación y de domiciliación tal como los publica la AEAT; un año no verificado da error |
 
 Sin navegador, sin dependencias en tiempo de ejecución y sin guardar nada: la
 herramienta habla HTTPS con tu certificado, recorre Cl@ve donde la sede lo pide,
@@ -69,16 +105,14 @@ usa las variables de entorno: los argumentos se ven en la lista de procesos.
 
 ## Lo que no hace
 
-Solo lee. Todo lo que tiene efecto jurídico está fuera a propósito:
-
-- Nunca abre (comparece) una notificación de la DEHÚ. Abrirla inicia los plazos
-  del acto que contiene; listarla no.
-- Nunca presenta, firma, paga, confirma datos de contacto ni acepta nada.
+- Nunca comparece en una notificación de la DEHÚ: el intercambio de aceptación
+  no está capturado y un acto jurídico a ciegas es peor que ninguno.
+- Nunca paga, y nunca actúa sin `--confirmar si`.
 - Nunca guarda datos de la sede, cookies ni tokens más allá del comando, y no
   envía nada a ningún sitio que no sea la sede que nombras.
 
 Algunos comandos emiten un documento (informes y certificados de la TGSS,
-certificado censal, certificado del SEPE). Emitirlo no cambia nada de tu
+certificado censal, certificado del SEPE, informe CIRBE). Emitirlo no cambia tu
 situación, pero las sedes limitan cuántos puedes pedir al día: la TGSS rechaza a
 partir de la tercera petición del mismo titular.
 

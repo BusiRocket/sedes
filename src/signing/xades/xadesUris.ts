@@ -1,0 +1,12 @@
+/** The namespace and algorithm URIs a XAdES signature names. */
+export const xadesUris = {
+  ds: 'http://www.w3.org/2000/09/xmldsig#',
+  xades: 'http://uri.etsi.org/01903/v1.3.2#',
+  c14n: 'http://www.w3.org/TR/2001/REC-xml-c14n-20010315',
+  rsaSha256: 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
+  sha256: 'http://www.w3.org/2001/04/xmlenc#sha256',
+  sha1: 'http://www.w3.org/2000/09/xmldsig#sha1',
+  envelopedSignature: 'http://www.w3.org/2000/09/xmldsig#enveloped-signature',
+  base64: 'http://www.w3.org/2000/09/xmldsig#base64',
+  signedPropertiesType: 'http://uri.etsi.org/01903#SignedProperties',
+} as const

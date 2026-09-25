@@ -1,5 +1,7 @@
 import { loadCertificateIdentity } from '../certificate/loadCertificateIdentity'
 import { createHttpClient } from '../http/createHttpClient'
+import { commandOptionNames } from './mappers/commandOptionNames'
+import { offlineHttpClient } from './offlineHttpClient'
 import { parseCliOptions } from './parseCliOptions'
 import type { Command } from './types/Command'
 import { usageText } from './usageText'
@@ -22,12 +24,21 @@ export const runCli = async (
     write(usageText(commands) + '\n')
     return command ? 0 : exitUsage
   }
-  const options = parseCliOptions(argv.slice(2), command.options)
+  const options = parseCliOptions(argv.slice(2), commandOptionNames(command))
+  if (command.needsCertificate === false) {
+    const offline = await command.run(offlineHttpClient, options)
+    write(JSON.stringify(offline, null, 2) + '\n')
+    return 0
+  }
   const identity = await loadCertificateIdentity({
     cert: options['cert'],
     key: options['key'],
   })
-  const result = await command.run(createHttpClient(identity), options)
+  const result = await command.run(
+    createHttpClient(identity),
+    options,
+    identity,
+  )
   write(JSON.stringify(result, null, 2) + '\n')
   return 0
 }

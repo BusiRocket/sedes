@@ -14,6 +14,21 @@ All notable changes to this project are documented here. The format follows
 
 ### Added
 
+- Write layer: every command declares its effect (read, emit, sign, write);
+  write commands run their read-only preparation and print a plan unless
+  `--confirmar si` is given, and refuse before the act when the plan's reads do
+  not match.
+- `aeat comparecer`, `aeat carta-pago` (modelo 010) and `aeat domicilio` (modelo
+  036, legal entities).
+- `tgss aplazamiento` and `tgss adjuntar`, plan mode only until the signing
+  exchange is captured; the TGSS "firma optimizada" (PKCS#1 of the
+  server-prepared data) is implemented and tested.
+- `firmar pdf`: PAdES-B-B signatures by incremental update, classic and stream
+  xrefs, optional visible stamp.
+- `firmar xml`: XAdES-BES/EPES (enveloped, enveloping, detached) on a strict XML
+  parser and Canonical XML 1.0 (inclusive and exclusive).
+- `cirbe informe` and `cirbe estado`: the Banco de España risk report.
+- `validar nif` and `calendario fiscal`, offline, without a certificate.
 - Certificate-bearing HTTPS client with cookie jar, redirect handling,
   ISO-8859-15 decoding and inflation of bodies compressed without a header.
 - HTML form parsing and the Cl@ve auto-submit relay walker.

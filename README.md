@@ -2,9 +2,11 @@
 
 [Leer en español](README.es.md)
 
-Read-only command-line client for Spanish public-administration portals, using
-the holder's own digital certificate. One binary, one JSON answer per portal.
-Maintained by [InteliFactu](https://intelifactu.com), which uses it to keep the
+Command-line client for Spanish public-administration portals, using the
+holder's own digital certificate. One binary, one JSON answer per portal. It
+reads by default; it also signs PDF and XML locally, and prepares or performs
+the acts listed under "Writing" only when you confirm them. Maintained by
+[InteliFactu](https://intelifactu.com), which uses it to keep the
 administrations' side of its customers' books up to date.
 
 | Command                                                                                             | Portal                                          | What it reads                                                                                           |
@@ -28,6 +30,43 @@ administrations' side of its customers' books up to date.
 | `sedes oargt recibos [--include paid] [--importes hoy]`                                             | OARGT, Diputación de Cáceres                    | Receipts in voluntary and enforced collection, with today's amount per enforced receipt on `--importes` |
 | `sedes sepe prestacion`                                                                             | Servicio Público de Empleo Estatal (SEPE)       | The last unemployment benefit: dates, days of right, consumed and remaining                             |
 | `sedes sepe certificado --out d`                                                                    | SEPE                                            | The "certificado de situacion" of benefits as PDF (emits it)                                            |
+| `sedes cirbe informe --nacimiento DD-MM-AAAA --email e`                                             | Banco de España (CIRBE)                         | Requests your own risk report (emits it)                                                                |
+| `sedes cirbe estado [--out d]`                                                                      | CIRBE                                           | Lists your report requests and downloads the ready PDFs                                                 |
+
+## Writing
+
+Commands marked write act at the administration. Without `--confirmar si` they
+run only the read-only preparation (session, lists, validation) and print the
+plan: every request they would send, with its values. With `--confirmar si` they
+perform it and return the portal's receipt. Each one refuses before the act when
+anything does not match what the plan read (holder, amount, document).
+
+| Command                                                                              | Portal | Act                                                                                         |
+| ------------------------------------------------------------------------------------ | ------ | ------------------------------------------------------------------------------------------- |
+| `sedes aeat comparecer --nif <NIF> --id <n> [--out d]`                               | AEAT   | Appears at a notification in the AEAT's own sede; legal deadlines start that day            |
+| `sedes aeat carta-pago --nif <NIF> --clave K --importe n,nn [--out d]`               | AEAT   | Generates a partial payment letter (modelo 010); paying is a separate step at the bank      |
+| `sedes aeat domicilio --nif <NIF> --codigo-postal ... --via ... [...]`               | AEAT   | Files a modelo 036 change of tax address (legal entities)                                   |
+| `sedes tgss aplazamiento --nif <NIF> --plazos n --garantia exenta --documento f.pdf` | TGSS   | Requests a deferral (XV207A01). Plan only for now: the signing exchange is not captured yet |
+| `sedes tgss adjuntar --expediente n --documento f.pdf --tipo t`                      | TGSS   | Attaches a document to an expediente. Plan only for now, same reason                        |
+
+## Signing
+
+| Command                                                                                                           | What it does                                                                                          |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `sedes firmar pdf --in f.pdf --out g.pdf [--visible si] [--motivo text]`                                          | PAdES-B-B signature (ETSI.CAdES.detached) by incremental update; valid in Acrobat, pdfsig and openssl |
+| `sedes firmar xml --in f.xml --out g.xml [--modo enveloped\|enveloping\|detached] [--politica facturae\|ninguna]` | XAdES-BES/EPES with SHA-256, AutoFirma-style layout; verified with xmlsec1                            |
+
+Both run locally with the certificate and key you pass; nothing leaves your
+machine.
+
+## Offline tools
+
+| Command                                                                  | What it does                                                                                            |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| `sedes validar nif --nif X`                                              | Validates a DNI, NIE, special NIF or legal-entity NIF and names its type                                |
+| `sedes calendario fiscal --ejercicio 2026 [--modelo 303] [--periodo 3T]` | Filing deadlines and direct-debit cut-offs as the AEAT publishes them; unverified years answer an error |
+
+No certificate needed.
 
 No browser, no runtime dependencies, nothing stored: the tool speaks HTTPS with
 the certificate, walks the Cl@ve relay where the portal needs it, parses the
@@ -98,22 +137,17 @@ root as well; see `src/index.ts`.
 
 ## What it will not do
 
-The tool reads. Every action with legal effect is left out on purpose, not
-merely unimplemented:
-
-- It never opens (comparece) a DEHU notification. Opening one starts the legal
-  clock of the act it carries; listing does not.
-- It never files, signs, pays, confirms contact data or accepts anything at any
-  portal.
+- It never opens (comparece) a DEHU notification: the accept exchange has not
+  been captured, and a guessed legal act is worse than none.
+- It never pays, and it never acts without `--confirmar si`.
 - It never stores portal data, session cookies or tokens beyond the running
   command, and it sends nothing anywhere but to the portal you named.
 
-The one nuance is emission. Some reads are documents the portal generates on
-request: the TGSS reports and certificates, the AEAT census certificate and the
-SEPE certificate. Emitting one changes nothing about the holder's position, so
-it is still a read, but the portals limit how many a subject may request per day
-(TGSS refuses around the third request for the same holder), and the commands
-that emit say so in their description.
+Some reads are emissions: documents the portal generates on request (TGSS
+reports and certificates, the AEAT census certificate, the SEPE certificate, the
+CIRBE report). Emitting one changes nothing about the holder's position, but the
+portals limit how many a subject may request per day (TGSS refuses around the
+third request for the same holder), and those commands say so in `--help`.
 
 ## Legal notice
 
