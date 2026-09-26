@@ -76,8 +76,10 @@
   mode; the pages after the signature are inferred from the wiki flows and fail
   safe. Done when each has one owner-authorised live run and its receipt parsed.
 - [~] **`cirbe estado` download of a ready report.** The 2026-09-26 request was
-  still "Registrada" at 01:32. Done when a resolved request writes its PDF under
-  `--out`.
+  still "Registrada" at 03:18, two hours and nineteen minutes after it was made,
+  across eight polls; the 14-minute-to-2-hour figure may hold only in office
+  hours. Re-run `cirbe estado --out` during the day before suspecting the status
+  parser. Done when a resolved request writes its PDF under `--out`.
 - [ ] **TGSS debt report PDF path with a real debt.** Unexercised through the
       package because every indebted holder had used the day's emission. Run
       `tgss deuda --out` on a day one has not.
