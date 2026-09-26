@@ -24,10 +24,19 @@
   and appearing is a legal act. Unblock: the owner records a browser HAR of one
   accept they choose to make, and authorises that specific notification.
 - [!] **TGSS `aplazamiento` and `adjuntar` refuse `--confirmar si`.** The "firma
-  optimizada" is implemented and tested, but there is no capture of the
-  FIRMA_FILTROS/PREPARARXML/COMPONERXML_AUTOFIRMA exchange, the `SPM.ACC.FIRMAR`
-  body or the CEUS upload. Unblock: HAR captures of one deferral walked through
-  signing and one attachment, then one authorised live run each.
+  optimizada" is implemented and tested. The protocol is no longer uncaptured:
+  on 2026-09-22 a real deferral (registro 20265990000981409) and a CEUS
+  attachment (justificante 20265990000982555) were filed from
+  `~/p/wiki/tools/tgss/` (`xv207a01-aplazamiento.mjs`, `ceus-adjuntar.mjs`,
+  `expose-node-signer.mjs`, `patch-autoscript.browser.mjs`), and
+  `~/p/wiki/brain/topics/tgss-headless.md` section "XV207A01" documents the
+  button walk, the Garantias radio pair, the field limits, the PEM-only
+  certificate trap that 500s `PREPARARXML`, and the `SPM.ACC.FIRMAR` response.
+  Those scripts drive Playwright and let the TGSS page's own JS build the
+  FIRMA_* requests, so the HTTP bodies are still not on disk. Next step: rerun
+  `ceus-expediente.mjs` (read-only) with Playwright request logging to record
+  the CEUS bodies, then port; the deferral bodies need the next real deferral
+  the owner authorises.
 
 ## Testing
 
@@ -50,17 +59,30 @@
       field of the request is captured.
 - [ ] **OARGT `LISTALIQ`** (liquidations) is server-rendered with a write button
       and was not ported.
-- [ ] **Junta de Extremadura and Ayuntamiento de Cáceres** have only Playwright
-      evidence; capture them at HTTP level before a port.
+- [~] **Junta de Extremadura and Ayuntamiento de Cáceres.** This entry said they
+  had Playwright evidence; a 2026-09-26 survey of `~/p/wiki/tools` and the brain
+  found none. Confirm with the owner whether any exists before planning a port.
+- [ ] **Sistema RED (FR101, RETC)** has Playwright-only walks in
+      `~/p/wiki/tools/tgss/` (`sede-red*.mjs`, `fr101-walk.mjs`). Capture at
+      HTTP level before a port.
+- [ ] **Duplicate AEAT client in InteliFactu.**
+      `intelifactu/packages/core/src/aeat/` reimplements part of this package.
+      Decide whether InteliFactu depends on `ventanilla-unica` or keeps its own,
+      and file the result in both backlogs.
 
 ## Documentation
 
-- [ ] **Launch after `v0.1.0`:** the Spanish LinkedIn post (draft delivered to
-      the owner, update it to the final name) and a listing PR to
-      `awesome-spain`.
+- [~] **Launch after `v0.1.0`.** Listing PR opened 2026-09-26:
+  https://github.com/GeiserX/awesome-spain/pull/45. LinkedIn post rewritten for
+  the final name and write layer and handed to the owner the same day. Done when
+  the PR is merged and the post is published.
 
 ## Future Ideas
 
-- [ ] FACe invoice submission, which needs XAdES byte-compatible with AutoFirma.
+- [ ] FACe invoice submission. A production pipeline already exists in
+      `~/p/wiki/tools/face/` (`face_client.py` SOAP with WS-Security,
+      `facturae.py`, XAdES SHA-512 byte-compatible with AutoFirma through
+      `afirma_bridge.py`). Port it here with the local XAdES signer rather than
+      the AutoFirma bridge.
 - [ ] RED SARA REC general registry filing and the Junta STA registry.
 - [ ] BOE fixed-width modelo writer and validator.
