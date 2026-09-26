@@ -51,9 +51,16 @@
       field of the request is captured.
 - [ ] **OARGT `LISTALIQ`** (liquidations) is server-rendered with a write button
       and was not ported.
-- [~] **Junta de Extremadura and Ayuntamiento de Cáceres.** This entry said they
-  had Playwright evidence; a 2026-09-26 survey of `~/p/wiki/tools` and the brain
-  found none. Confirm with the owner whether any exists before planning a port.
+- [ ] **Junta de Extremadura and Ayuntamiento de Cáceres.** Playwright sweeps
+      from 2026-09-02/03, recovered from transcripts into
+      `~/p/wiki/brain/sources/sede-scripts/2026-09-02-junta-caceres/` with their
+      findings. `tramites.juntaex.es` and `sede.caceres.es` are both T-Systems
+      STA and take the certificate directly at
+      `/sta/CarpetaPrivate/Certificate?APP_CODE=STA&PAGE_CODE=...` (no Cl@ve),
+      so a shared STA reader ports like OARGT. `sede.gobex.es` (Carpeta
+      Ciudadana: deudas, tasas, pagos) goes through Cl@ve and serves an
+      incomplete TLS chain. A port must add `juntaex.es`, `gobex.es` and
+      `caceres.es` to `isAdministrationHost`.
 - [ ] **Sistema RED (FR101, RETC)** has Playwright-only walks in
       `~/p/wiki/tools/tgss/` (`sede-red*.mjs`, `fr101-walk.mjs`). Capture at
       HTTP level before a port.
