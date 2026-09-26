@@ -51,16 +51,17 @@
       field of the request is captured.
 - [ ] **OARGT `LISTALIQ`** (liquidations) is server-rendered with a write button
       and was not ported.
-- [ ] **Junta de Extremadura and Ayuntamiento de Cáceres.** Playwright sweeps
-      from 2026-09-02/03, recovered from transcripts into
-      `~/p/wiki/brain/sources/sede-scripts/2026-09-02-junta-caceres/` with their
-      findings. `tramites.juntaex.es` and `sede.caceres.es` are both T-Systems
-      STA and take the certificate directly at
-      `/sta/CarpetaPrivate/Certificate?APP_CODE=STA&PAGE_CODE=...` (no Cl@ve),
-      so a shared STA reader ports like OARGT. `sede.gobex.es` (Carpeta
-      Ciudadana: deudas, tasas, pagos) goes through Cl@ve and serves an
-      incomplete TLS chain. A port must add `juntaex.es`, `gobex.es` and
-      `caceres.es` to `isAdministrationHost`.
+- [ ] **Junta Carpeta Ciudadana: notificaciones, expedientes, documentos.**
+      `sede.gobex.es` reads shipped in 0.2.0 cover deudas, tasas and pagos. The
+      Carpeta's notificaciones and expedientes searches take a date window of at
+      most 30 days, so a full history needs a windowed walk; "Mis documentos" is
+      unexplored. Capture one search each (read only) and port on
+      `src/gobex/fetchers/searchGobexReport.ts`.
+- [!] **`junta pagos` answers HTTP 500 for E10484822.** The MisPagos search POST
+  returns 500 with an empty body for that holder only, every year tried; the
+  other five certificates answer. Server-side; recheck later and, if it
+  persists, try the search per sociedad in the browser to see whether the sede
+  itself fails there too.
 - [ ] **Sistema RED (FR101, RETC)** has Playwright-only walks in
       `~/p/wiki/tools/tgss/` (`sede-red*.mjs`, `fr101-walk.mjs`). Capture at
       HTTP level before a port.

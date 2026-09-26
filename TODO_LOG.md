@@ -6,6 +6,21 @@
 
 ### 2026-09
 
+- [x] 2026-09-26 — **Backend:** Junta de Extremadura and Ayuntamiento de Cáceres
+      reads, released as 0.2.0.
+  - Result: a shared T-Systems STA reader (`src/sta/`) gives
+    `junta|caceres expedientes|notificaciones|registros` over the direct
+    certificate login, listing notifications without opening them and refusing
+    the contact-data confirmation gate. `src/gobex/` logs into the Carpeta
+    Ciudadana through Cl@ve and gives `junta deudas|tasas|pagos`, posting no
+    button but the search one. The FNMT server root is trusted alongside Node's
+    roots; `juntaex.es`, `gobex.es` and `caceres.es` joined the host allowlist.
+  - Evidence: `pnpm check:ci` green; live runs with all six certificates (STA:
+    2/1/9 and 4/5/38 for the owner; gobex: 18 paid fees, pagos 2020-2022 and one
+    "Embargo por fichero" set-off incident); three holders hit the Cáceres
+    contact gate as designed; E10484822 `junta pagos` gets a sede 500 (kept open
+    in `TODO.md`). Commits `61acd89`, `b2a8649`, `92d2048`.
+
 - [x] 2026-09-26 — **Security:** Review of `5f03b02`, `f26f614` and `308dea4`.
   - Result: one blocker, two major, one minor, all fixed. Every request host,
     not only redirect targets, must be an administration host, because SAML
