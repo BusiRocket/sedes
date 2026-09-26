@@ -6,6 +6,16 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Security
+
+- Cookies whose `Domain` is a public suffix (`es`, `gob.es`...) or not a parent
+  of the host that set them are dropped.
+- A redirect to another host outside the administrations is refused, so the
+  client certificate is never presented to it.
+- Response bodies and undeclared decompression are capped at 64 MiB.
+- DEHU document file names are sanitised, and nothing is written outside
+  `--out`.
+
 ### Changed
 
 - Renamed from `sedes` to `ventanilla-unica` before the first release: the

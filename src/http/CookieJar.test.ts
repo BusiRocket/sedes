@@ -20,6 +20,19 @@ describe('CookieJar', () => {
     expect(jar.headerFor('www1.agenciatributaria.gob.es')).toBeUndefined()
   })
 
+  it('drops cookies scoped to a public suffix or to another domain', () => {
+    const jar = new CookieJar()
+    jar.store('sede.oargt.es', [
+      'wide=1; Domain=.es',
+      'gov=2; Domain=gob.es',
+      'foreign=3; Domain=bde.es',
+      'own=4; Domain=oargt.es',
+    ])
+    expect(jar.headerFor('aps.bde.es')).toBeUndefined()
+    expect(jar.headerFor('pasarela.clave.gob.es')).toBeUndefined()
+    expect(jar.headerFor('sede.oargt.es')).toBe('own=4')
+  })
+
   it('overwrites a cookie set again and ignores malformed headers', () => {
     const jar = new CookieJar()
     jar.store(tgss, ['JSESSIONID=one', 'nonsense', '=empty'])

@@ -50,3 +50,12 @@
       `projects/ventanilla-unica.md`.
   - Evidence: wiki `794125f1`, `~/p` `c472fa7`; `brain graph` reports 0 dangling
     links.
+
+- [x] 2026-09-26 — **Security:** HTTP client and DEHU writer hardening before
+      the first release.
+  - Result: cookies scoped to a public suffix or a foreign domain are dropped;
+    redirects to another host outside the administrations are refused; responses
+    and undeclared decompression are capped at 64 MiB; DEHU file names are
+    sanitised and writes outside `--out` are refused.
+  - Evidence: `pnpm check:ci` 461 files and 1023 tests passing; live
+    `cirbe estado` and `dehu list` through the new redirect check.

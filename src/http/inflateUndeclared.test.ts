@@ -1,6 +1,7 @@
 import { deflateRawSync, deflateSync, gzipSync } from 'node:zlib'
 import { describe, expect, it } from 'vitest'
 import { inflateUndeclared } from './inflateUndeclared'
+import { maxBodyBytes } from './maxBodyBytes'
 
 const text = '{\n  "data": { "importeActual": 169.48 },\n  "result": true\n}'
 
@@ -26,5 +27,10 @@ describe('inflateUndeclared', () => {
     expect(inflateUndeclared(Buffer.alloc(0)).length).toBe(0)
     const pdf = Buffer.from([0x00, 0x01, 0x02, 0x03])
     expect(inflateUndeclared(pdf)).toBe(pdf)
+  })
+
+  it('leaves a stream that expands past the limit compressed', () => {
+    const bomb = gzipSync(Buffer.alloc(maxBodyBytes + 1))
+    expect(inflateUndeclared(bomb)).toBe(bomb)
   })
 })

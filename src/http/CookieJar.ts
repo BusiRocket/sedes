@@ -1,8 +1,11 @@
+import { cookieScope } from './cookieScope'
+
 /**
  * The smallest cookie jar the portals need. A cookie without a `Domain`
  * attribute belongs to the host that set it; with one, to that domain and its
  * subdomains, which is how the Cl@ve relay shares state between
- * `pasarela.clave.gob.es` and `pasarela-ident.clave.gob.es`. Paths and
+ * `pasarela.clave.gob.es` and `pasarela-ident.clave.gob.es`. A cookie whose
+ * domain is not the host or a parent of it, or is a public suffix, is dropped. Paths and
  * expiry are ignored: a sweep lives for one session.
  */
 export class CookieJar {
@@ -14,13 +17,8 @@ export class CookieJar {
       const [pair, ...attributes] = header.split(';')
       const separator = pair?.indexOf('=') ?? -1
       if (!pair || separator <= 0) continue
-      const domain = attributes
-        .map((attribute) => attribute.trim())
-        .find((attribute) => attribute.toLowerCase().startsWith('domain='))
-        ?.slice('domain='.length)
-        .replace(/^\./, '')
-        .toLowerCase()
-      const scope = domain === undefined || domain === '' ? host : domain
+      const scope = cookieScope(host, attributes)
+      if (scope === undefined) continue
       const bucket = this.cookies.get(scope) ?? new Map<string, string>()
       bucket.set(pair.slice(0, separator).trim(), pair.slice(separator + 1))
       this.cookies.set(scope, bucket)

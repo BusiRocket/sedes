@@ -18,4 +18,11 @@ describe('writeNotificationFile', () => {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     expect((await readFile(written.path)).toString()).toBe('%PDF-1.4 test')
   })
+
+  it('refuses a name that would leave the output directory', async () => {
+    const dir = await mkdtemp(join(tmpdir(), 'ventanilla-unica-dehu-'))
+    await expect(
+      writeNotificationFile(dir, '../escape.pdf', 'AA=='),
+    ).rejects.toThrow('refused to write')
+  })
 })

@@ -11,30 +11,6 @@
 
 ## Security
 
-- [ ] **Cookie `Domain=` is accepted without checking it against the host that
-      set it.** `src/http/CookieJar.ts` stores the cookie under whatever domain
-      the header names, so a response can scope a cookie to a parent like
-      `gob.es` or `es` and it is sent to every host below it. Keep the Cl@ve
-      case working (`pasarela.clave.gob.es` sharing with
-      `pasarela-ident.clave.gob.es`): accept a domain only when the setting host
-      equals it or ends with `.<domain>`, and refuse bare public suffixes. Found
-      by an automated review on 2026-09-25, still present on 2026-09-26.
-- [ ] **Redirects are followed to any host with the client certificate, cookies
-      and caller headers.** `src/http/createHttpClient.ts` with
-      `redirectTarget.ts` follows every `Location`. Limit redirects to an
-      allowlist of administration domains (the portals plus the Cl@ve relay) and
-      drop caller headers on a cross-origin hop. Done when a test redirecting to
-      an unlisted host throws.
-- [ ] **Decompression and buffering have no size cap.** `gunzipSync`,
-      `inflateSync` and `inflateRawSync` in `src/http/inflateUndeclared.ts` run
-      without `maxOutputLength`, and `collectResponse.ts` buffers the whole
-      body. Add both limits with a clear error.
-- [ ] **DEHU file names come from the server unsanitised.**
-      `src/dehu/documents/mappers/notificationFileName.ts` puts the notification
-      identifier into the file name that `writeNotificationFile.ts` joins onto
-      `--out`, so an identifier with `../` escapes the directory. Sanitise it
-      the way the vida-laboral writer sanitises its label, and add a traversal
-      test.
 - [ ] **Three commits never got a completed security review.** The automated
       reviews of `5f03b02` (first adapters) and `f26f614` (second read wave)
       stopped without a verdict, and the write wave `308dea4` was never
@@ -67,10 +43,11 @@
   mode; the pages after the signature are inferred from the wiki flows and fail
   safe. Done when each has one owner-authorised live run and its receipt parsed.
 - [~] **`cirbe estado` download of a ready report.** The 2026-09-26 request was
-  still "Registrada" at 03:18, two hours and nineteen minutes after it was made,
-  across eight polls; the 14-minute-to-2-hour figure may hold only in office
-  hours. Re-run `cirbe estado --out` during the day before suspecting the status
-  parser. Done when a resolved request writes its PDF under `--out`.
+  still "Registrada" at 03:18 and again at 12:20, two hours and nineteen minutes
+  after it was made, across eight polls; the 14-minute-to-2-hour figure may hold
+  only in office hours. Re-run `cirbe estado --out` during the day before
+  suspecting the status parser. Done when a resolved request writes its PDF
+  under `--out`.
 - [ ] **TGSS debt report PDF path with a real debt.** Unexercised through the
       package because every indebted holder had used the day's emission. Run
       `tgss deuda --out` on a day one has not.
