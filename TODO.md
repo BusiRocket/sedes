@@ -9,14 +9,6 @@
 > verified complete · `[-]` obsolete or superseded. Closed work moves to
 > `TODO_LOG.md`.
 
-## Security
-
-- [ ] **Three commits never got a completed security review.** The automated
-      reviews of `5f03b02` (first adapters) and `f26f614` (second read wave)
-      stopped without a verdict, and the write wave `308dea4` was never
-      reviewed. Run one review over each, read-only, and file what it finds
-      here.
-
 ## Blocked Tasks
 
 - [!] **DEHU comparecencia.** Not implemented on purpose: the re-auth hop

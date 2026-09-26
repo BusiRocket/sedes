@@ -2,6 +2,7 @@ import { pdfDictGet } from '../objects/pdfDictGet'
 import { selectXrefRanges } from '../selectors/selectXrefRanges'
 import type { PdfDict } from '../types/PdfDict'
 import type { XrefEntry } from '../types/XrefEntry'
+import { assertXrefLayout } from './assertXrefLayout'
 import { numberItems } from './numberItems'
 import { readXrefRow } from './readXrefRow'
 
@@ -13,6 +14,7 @@ export const parseXrefStreamEntries = (
   const widths = numberItems(pdfDictGet(dict, 'W'))
   const rowWidth = widths.reduce((sum, width) => sum + width, 0)
   const ranges = selectXrefRanges(dict)
+  assertXrefLayout(widths, ranges, data.length)
   const entries = new Map<number, XrefEntry>()
   let at = 0
   for (let range = 0; range + 1 < ranges.length; range += 2) {

@@ -6,6 +6,16 @@
 
 ### 2026-09
 
+- [x] 2026-09-26 — **Security:** Review of `5f03b02`, `f26f614` and `308dea4`.
+  - Result: one blocker, two major, one minor, all fixed. Every request host,
+    not only redirect targets, must be an administration host, because SAML
+    relays post to a form action taken from the previous response. PDF streams
+    inflate to at most 64 MiB. xref `/W` and `/Index` must fit the stream data.
+    TGSS report file names are sanitised. The write gate and the XML parser (no
+    DOCTYPE, no general entities, no recursion) were checked and are clean.
+  - Evidence: `pnpm check:ci` green (462 files, 1029 tests); live `dehu list`,
+    `sepe prestacion`, `cirbe estado` and `tgss nss` still log in.
+
 - [x] 2026-09-25 — **Backend:** Certificate HTTP client, Cl@ve relay and CLI
       skeleton, then the AEAT, TGSS, DEHU and OARGT debt reads.
   - Result: `sedes <portal> <action>` with JSON on stdout, zero runtime

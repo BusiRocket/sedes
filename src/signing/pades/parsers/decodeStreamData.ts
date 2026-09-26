@@ -1,5 +1,6 @@
 import { inflateSync } from 'node:zlib'
 
+import { maxDecodedStreamBytes } from '../maxDecodedStreamBytes'
 import { selectSingleFilter } from '../selectors/selectSingleFilter'
 import type { PdfDict } from '../types/PdfDict'
 import { applyPngPredictor } from './applyPngPredictor'
@@ -13,5 +14,8 @@ export const decodeStreamData = (dict: PdfDict, raw: Buffer): Buffer => {
       'only FlateDecode streams are supported in structural objects',
     )
   }
-  return applyPngPredictor(dict, inflateSync(raw))
+  return applyPngPredictor(
+    dict,
+    inflateSync(raw, { maxOutputLength: maxDecodedStreamBytes }),
+  )
 }

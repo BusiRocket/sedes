@@ -6,6 +6,15 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Security
+
+- Every request, not only a redirect, must go to an administration host. The
+  Cl@ve and SAML relays take their next URL from a form in the previous
+  response, so a tampered page could otherwise receive the client certificate.
+- PDF structural streams inflate to at most 64 MiB, and an xref stream whose
+  `/W` widths or `/Index` counts do not fit its data is refused.
+- TGSS report file names built from `--nif` cannot leave `--out`.
+
 ## [0.1.1] - 2026-09-26
 
 ### Fixed

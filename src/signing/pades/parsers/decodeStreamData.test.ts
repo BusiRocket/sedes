@@ -33,4 +33,10 @@ describe('decodeStreamData', () => {
       /only FlateDecode/,
     )
   })
+
+  it('refuses a stream that inflates past the cap', () => {
+    const bomb = deflateSync(Buffer.alloc(65 * 1024 * 1024))
+    const dict = pdfDict([['Filter', pdfRaw('/FlateDecode')]])
+    expect(() => decodeStreamData(dict, bomb)).toThrow(RangeError)
+  })
 })

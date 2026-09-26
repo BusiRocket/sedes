@@ -25,4 +25,14 @@ describe('writeReportPdf', () => {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     await expect(readFile(filePath)).resolves.toEqual(pdf)
   })
+
+  it('keeps a name built from a hostile --nif inside the directory', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'ventanilla-unica-tgss-'))
+    const filePath = await writeReportPdf(
+      dir,
+      'tgss-deuda-../../x.pdf',
+      Buffer.from('%PDF-1.4'),
+    )
+    expect(filePath).toBe(join(dir, 'tgss-deuda-.._.._x.pdf'))
+  })
 })
