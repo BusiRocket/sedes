@@ -6,6 +6,8 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-09-26
+
 ### Security
 
 - Every request, not only a redirect, must go to an administration host. The
