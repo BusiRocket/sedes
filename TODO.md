@@ -51,12 +51,6 @@
       field of the request is captured.
 - [ ] **OARGT `LISTALIQ`** (liquidations) is server-rendered with a write button
       and was not ported.
-- [ ] **Junta Carpeta Ciudadana: notificaciones, expedientes, documentos.**
-      `sede.gobex.es` reads shipped in 0.2.0 cover deudas, tasas and pagos. The
-      Carpeta's notificaciones and expedientes searches take a date window of at
-      most 30 days, so a full history needs a windowed walk; "Mis documentos" is
-      unexplored. Capture one search each (read only) and port on
-      `src/gobex/fetchers/searchGobexReport.ts`.
 - [!] **`junta pagos` answers HTTP 500 for E10484822.** The MisPagos search POST
   returns 500 with an empty body for that holder only, every year tried; the
   other five certificates answer. Server-side; recheck later and, if it

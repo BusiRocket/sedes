@@ -4,6 +4,7 @@ import { mapOtherGrids } from '../mappers/mapOtherGrids'
 import { parseGrids } from '../parsers/parseGrids'
 import { selectDatascroller } from '../selectors/selectDatascroller'
 import { selectImageButtonForm } from '../selectors/selectImageButtonForm'
+import { gobexTimeoutMs } from '../session/gobexTimeoutMs'
 import type { GobexSearch } from '../types/GobexSearch'
 import { collectScrollerRows } from './collectScrollerRows'
 import { submitImageButton } from './submitImageButton'
@@ -19,7 +20,7 @@ export const searchGobexReport = async (
   url: string,
   filters: (formId: string) => Readonly<Record<string, string>> = () => ({}),
 ): Promise<GobexSearch> => {
-  const page = await client.request(url)
+  const page = await client.request(url, { timeoutMs: gobexTimeoutMs })
   const fields = selectImageButtonForm(page.text, page.url, 'bt_buscar')?.form
     .fields
   const formId = Object.keys(fields ?? {}).find((key) => !key.includes(':'))

@@ -1,6 +1,7 @@
 import { parseForms } from '../../html/parsers/parseForms'
 import type { HttpClient } from '../../http/types/HttpClient'
 import type { HttpResponse } from '../../http/types/HttpResponse'
+import { gobexTimeoutMs } from '../session/gobexTimeoutMs'
 import type { Datascroller } from '../types/Datascroller'
 
 /**
@@ -19,6 +20,7 @@ export const fetchScrollerPage = async (
   )
   if (!form) throw new Error(`Junta: no form ${scroller.formId} to page with`)
   return client.request(form.action, {
+    timeoutMs: gobexTimeoutMs,
     method: 'POST',
     form: {
       ...form.fields,

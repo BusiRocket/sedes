@@ -1,6 +1,7 @@
 import type { HttpClient } from '../../http/types/HttpClient'
 import type { HttpResponse } from '../../http/types/HttpResponse'
 import { selectImageButtonForm } from '../selectors/selectImageButtonForm'
+import { gobexTimeoutMs } from '../session/gobexTimeoutMs'
 
 /**
  * Click an image button of a JSF page: post its form, with `filters` over its
@@ -16,6 +17,7 @@ export const submitImageButton = async (
   const target = selectImageButtonForm(page.text, page.url, image)
   if (!target) throw new Error(`Junta: no ${image} button at ${page.url}`)
   return client.request(target.form.action, {
+    timeoutMs: gobexTimeoutMs,
     method: 'POST',
     form: {
       ...target.form.fields,

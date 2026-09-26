@@ -6,6 +6,18 @@
 
 ### 2026-09
 
+- [x] 2026-09-26 — **Backend:** The rest of the Junta Carpeta Ciudadana.
+  - Result: `junta carpeta-expedientes` (30-day windows; the sede answers
+    "Temporalmente se limita la búsqueda de expedientes a un rango máximo de 30
+    días"), `carpeta-notificaciones` (every state, never opened), `documentos`
+    and `representados`. Notifications, documents and represented expedientes
+    search without dates; a date filter needs both ends. gobex requests wait 180
+    s because the sede takes 50-70 s on some pages.
+  - Evidence: `pnpm check:ci` green; live for 76048463K: 14 notifications (0
+    pending, 3 expired), 17 documents, 13 represented, 1 expediente in the last
+    365 days; the other certificates answer except E10484822's notifications
+    (kept open in `TODO.md`).
+
 - [x] 2026-09-26 — **Backend:** Junta de Extremadura and Ayuntamiento de Cáceres
       reads, released as 0.2.0.
   - Result: a shared T-Systems STA reader (`src/sta/`) gives

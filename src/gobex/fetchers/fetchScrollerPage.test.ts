@@ -28,6 +28,7 @@ describe('fetchScrollerPage', () => {
       3,
     )
     expect(request).toHaveBeenCalledWith(url, {
+      timeoutMs: 180_000,
       method: 'POST',
       form: {
         f: 'f',

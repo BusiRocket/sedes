@@ -26,6 +26,7 @@ describe('submitImageButton', () => {
       { 'f:year': '2026' },
     )
     expect(request).toHaveBeenCalledWith('https://sede.gobex.es/SEDE/x.jsf', {
+      timeoutMs: 180_000,
       method: 'POST',
       form: { f: 'f', 'f:year': '2026', 'f:go.x': '10', 'f:go.y': '10' },
       referer: url,
