@@ -1,0 +1,8 @@
+export { listJuntaCarpetaExpedientes } from './listJuntaCarpetaExpedientes'
+export { listJuntaCarpetaNotifications } from './listJuntaCarpetaNotifications'
+export { listJuntaDebts } from './listJuntaDebts'
+export { listJuntaDocuments } from './listJuntaDocuments'
+export { listJuntaFees } from './listJuntaFees'
+export { listJuntaPayments } from './listJuntaPayments'
+export { listJuntaRepresentedExpedientes } from './listJuntaRepresentedExpedientes'
+export type { GobexRecord } from './types/GobexRecord'

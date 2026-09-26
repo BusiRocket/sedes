@@ -6,6 +6,14 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Added
+
+- `junta carpeta-expedientes|carpeta-notificaciones|documentos|representados`:
+  the rest of the Junta de Extremadura's Carpeta Ciudadana. The sede limits an
+  expedientes search to 30 days, so `carpeta-expedientes` sweeps
+  `--desde`..`--hasta` (default the last 365 days) one window at a time.
+  Notifications are listed, never opened.
+
 ## [0.2.0] - 2026-09-26
 
 ### Added

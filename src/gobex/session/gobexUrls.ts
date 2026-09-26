@@ -12,5 +12,12 @@ export const gobexUrls = {
   feeIncidents:
     'https://sede.gobex.es/SEDE/privado/ciudadanos/servicioPagos/consultaTasasPendientes.jsf',
   payments: 'https://sede.gobex.es/SEDE/privado/ciudadanos/MisPagos.jsf',
+  expedientes:
+    'https://sede.gobex.es/SEDE/privado/ciudadanos/MisExpedientes.jsf',
+  notifications:
+    'https://sede.gobex.es/SEDE/privado/ciudadanos/Notificaciones.jsf',
+  documents: 'https://sede.gobex.es/SEDE/privado/ciudadanos/MisDocumentos.jsf',
+  representedExpedientes:
+    'https://sede.gobex.es/SEDE/privado/ciudadanos/ExpRepresentados.jsf',
   paymentCompanies: ['AG00', 'OA01', 'OA02', 'EP01', 'OE01'],
 } as const

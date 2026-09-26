@@ -22,6 +22,15 @@ export const gridColumnKey = (title: string): string => {
     Nombre: 'name',
     'Tipo incidencia': 'incidentType',
     'Imp. pendiente': 'pendingAmount',
+    'Nº. expediente': 'expediente',
+    Trámite: 'procedure',
+    'Fecha inicio': 'startedOn',
+    Fase: 'phase',
+    Representante: 'representative',
+    'Nº. notificación': 'notification',
+    Asunto: 'subject',
+    'F. notificación': 'notifiedOn',
+    'Fec. registro': 'registeredOn',
   }
   const key = known[title]
   if (key) return key
