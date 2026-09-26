@@ -8,7 +8,7 @@ import { selectSamlHopForm } from './selectors/selectSamlHopForm'
  * is posted to its real target (the `idpUrl` field or the action) with the
  * page as Referer; the certificate is presented by mTLS on the
  * AuthenticateCitizen hop. The walk ends on the first page without a SAML
- * form, which is the SEPE service.
+ * form, which is the service (SEPE, CIRBE, the Junta sede).
  */
 export const walkSamlChain = async (
   client: HttpClient,
@@ -29,6 +29,6 @@ export const walkSamlChain = async (
     })
   }
   throw new Error(
-    `SEPE: the Cl@ve relay did not settle after ${String(maxHops)} hops (last ${String(response.status)} at ${response.url})`,
+    `Cl@ve: the relay did not settle after ${String(maxHops)} hops (last ${String(response.status)} at ${response.url})`,
   )
 }

@@ -16,9 +16,12 @@ import { dehuDocumentos } from './commands/dehuDocumentos'
 import { dehuList } from './commands/dehuList'
 import { firmarPdf } from './commands/firmarPdf'
 import { firmarXml } from './commands/firmarXml'
+import { juntaDeudas } from './commands/juntaDeudas'
 import { juntaExpedientes } from './commands/juntaExpedientes'
 import { juntaNotificaciones } from './commands/juntaNotificaciones'
+import { juntaPagos } from './commands/juntaPagos'
 import { juntaRegistros } from './commands/juntaRegistros'
+import { juntaTasas } from './commands/juntaTasas'
 import { oargtRecibos } from './commands/oargtRecibos'
 import { sepeCertificado } from './commands/sepeCertificado'
 import { sepePrestacion } from './commands/sepePrestacion'
@@ -62,6 +65,9 @@ export const commandRegistry: readonly Command[] = [
   juntaExpedientes,
   juntaNotificaciones,
   juntaRegistros,
+  juntaDeudas,
+  juntaTasas,
+  juntaPagos,
   caceresExpedientes,
   caceresNotificaciones,
   caceresRegistros,

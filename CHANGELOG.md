@@ -15,6 +15,11 @@ All notable changes to this project are documented here. The format follows
   sede asks to confirm contact data first gets an error instead of a write.
 - The FNMT server root ("AC RAIZ FNMT-RCM SERVIDORES SEGUROS") is trusted
   alongside Node's roots, which lack it; `tramites.juntaex.es` chains to it.
+- `junta deudas|tasas|pagos`: the Junta de Extremadura's Carpeta Ciudadana at
+  `sede.gobex.es`, reached through Cl@ve with the certificate. Searches post no
+  button but the search one, so no certificate is ever issued; `pagos` also
+  returns the "Incidencias del tercero" grid (set-offs, garnishments). A search
+  the sede answers with a server error is reported as such.
 
 ## [0.1.2] - 2026-09-26
 
