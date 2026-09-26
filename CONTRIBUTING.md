@@ -54,3 +54,22 @@ One file per CLI command under `src/cli/commands/`, registered in
 Conventional commits (`feat:`, `fix:`, `docs:`, ...), enforced by commitlint on
 commit. Releases bump `package.json`, update `CHANGELOG.md`, tag `vX.Y.Z` and
 run the Publish workflow, which publishes through npm trusted publishing.
+
+A release, from a green `pnpm check:ci` on `main`:
+
+```sh
+# bump "version" in package.json, move [Unreleased] to [X.Y.Z] - date
+git commit -m "chore(release): X.Y.Z"
+git tag -a vX.Y.Z -m vX.Y.Z
+git push origin main vX.Y.Z
+gh workflow run publish.yml --ref vX.Y.Z
+gh run watch <run id> --exit-status
+```
+
+The workflow runs the gate again, builds, and publishes with provenance. No npm
+token exists: npmjs.com trusts `InteliFactu/ventanilla-unica` with workflow
+`publish.yml` for this package (`npm trust list ventanilla-unica` shows it). A
+new version can take a few minutes to appear in `npm view`; the registry
+document at `https://registry.npmjs.org/ventanilla-unica` shows it first. Verify
+with `npm i ventanilla-unica@X.Y.Z` in an empty directory and
+`npm audit signatures`, which should report one verified attestation.

@@ -28,9 +28,6 @@
   FIRMA_FILTROS/PREPARARXML/COMPONERXML_AUTOFIRMA exchange, the `SPM.ACC.FIRMAR`
   body or the CEUS upload. Unblock: HAR captures of one deferral walked through
   signing and one attachment, then one authorised live run each.
-- [!] **npm trusted publisher and `v0.1.0`.** Needs the owner's npm account:
-  register the package `ventanilla-unica` for repository
-  `InteliFactu/ventanilla-unica`, workflow `publish.yml`, then cut `v0.1.0`.
 
 ## Pending Decisions
 

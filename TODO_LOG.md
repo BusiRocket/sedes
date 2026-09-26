@@ -59,3 +59,11 @@
     sanitised and writes outside `--out` are refused.
   - Evidence: `pnpm check:ci` 461 files and 1023 tests passing; live
     `cirbe estado` and `dehu list` through the new redirect check.
+
+- [x] 2026-09-26 — **Infrastructure:** First releases on npm.
+  - Result: `0.1.0` published by the owner from a clean clone of the tag;
+    trusted publisher created with `npm trust github` for
+    `InteliFactu/ventanilla-unica` and `publish.yml`; `0.1.1` (bin path without
+    `./`) published by the workflow with provenance.
+  - Evidence: tags `v0.1.0`, `v0.1.1`; Actions run 36235925200;
+    `npm audit signatures` reports a verified signature and attestation.
