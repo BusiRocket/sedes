@@ -11,6 +11,8 @@ describe('isAdministrationHost', () => {
       'dehu.redsara.es',
       'sede.oargt.es',
       'aps.bde.es',
+      'tramites.juntaex.es',
+      'sede.caceres.es',
       'SEDE.SEPE.GOB.ES',
     ])
       expect(isAdministrationHost(host)).toBe(true)

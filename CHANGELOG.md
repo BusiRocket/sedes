@@ -6,6 +6,16 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Added
+
+- `junta expedientes|notificaciones|registros` and
+  `caceres expedientes|notificaciones|registros`: the Junta de Extremadura's
+  sede asociada and the Ayuntamiento de Cáceres, both T-Systems STA sedes with a
+  direct certificate login. Notifications are listed, never opened. A holder the
+  sede asks to confirm contact data first gets an error instead of a write.
+- The FNMT server root ("AC RAIZ FNMT-RCM SERVIDORES SEGUROS") is trusted
+  alongside Node's roots, which lack it; `tramites.juntaex.es` chains to it.
+
 ## [0.1.2] - 2026-09-26
 
 ### Security

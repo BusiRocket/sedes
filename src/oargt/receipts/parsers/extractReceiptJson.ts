@@ -1,4 +1,4 @@
-import { findBalancedArrayEnd } from './findBalancedArrayEnd'
+import { findBalancedArrayEnd } from '../../../html/parsers/findBalancedArrayEnd'
 
 /**
  * Pull the `dataset_DEUDAPENDIENTE` rows a RECIBOS tab embeds as a plain

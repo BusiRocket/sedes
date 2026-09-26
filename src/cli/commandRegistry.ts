@@ -6,6 +6,9 @@ import { aeatDeudas } from './commands/aeatDeudas'
 import { aeatDomicilio } from './commands/aeatDomicilio'
 import { aeatInformativas } from './commands/aeatInformativas'
 import { aeatPagos } from './commands/aeatPagos'
+import { caceresExpedientes } from './commands/caceresExpedientes'
+import { caceresNotificaciones } from './commands/caceresNotificaciones'
+import { caceresRegistros } from './commands/caceresRegistros'
 import { calendarioFiscal } from './commands/calendarioFiscal'
 import { cirbeEstado } from './commands/cirbeEstado'
 import { cirbeInforme } from './commands/cirbeInforme'
@@ -13,6 +16,9 @@ import { dehuDocumentos } from './commands/dehuDocumentos'
 import { dehuList } from './commands/dehuList'
 import { firmarPdf } from './commands/firmarPdf'
 import { firmarXml } from './commands/firmarXml'
+import { juntaExpedientes } from './commands/juntaExpedientes'
+import { juntaNotificaciones } from './commands/juntaNotificaciones'
+import { juntaRegistros } from './commands/juntaRegistros'
 import { oargtRecibos } from './commands/oargtRecibos'
 import { sepeCertificado } from './commands/sepeCertificado'
 import { sepePrestacion } from './commands/sepePrestacion'
@@ -53,6 +59,12 @@ export const commandRegistry: readonly Command[] = [
   dehuList,
   dehuDocumentos,
   oargtRecibos,
+  juntaExpedientes,
+  juntaNotificaciones,
+  juntaRegistros,
+  caceresExpedientes,
+  caceresNotificaciones,
+  caceresRegistros,
   sepePrestacion,
   sepeCertificado,
   cirbeInforme,

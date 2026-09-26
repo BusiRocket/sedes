@@ -6,6 +6,7 @@ import type { CertificateIdentity } from '../certificate/types/CertificateIdenti
 import { buildRequestHeaders } from './buildRequestHeaders'
 import { collectResponse } from './collectResponse'
 import type { CookieJar } from './CookieJar'
+import { trustedCertificateAuthorities } from './trustedCertificateAuthorities'
 import type { HttpRequestOptions } from './types/HttpRequestOptions'
 import type { HttpResponse } from './types/HttpResponse'
 
@@ -30,6 +31,7 @@ export const performRequest = async (
     cert: identity.cert,
     key: identity.key,
     passphrase: identity.passphrase,
+    ca: [...trustedCertificateAuthorities],
     headers: buildRequestHeaders(target, jar, options, body),
     timeout: options.timeoutMs ?? defaultTimeoutMs,
   })
