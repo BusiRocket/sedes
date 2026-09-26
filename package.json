@@ -1,13 +1,13 @@
 {
   "name": "ventanilla-unica",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Command-line client for the Spanish public administration portals (AEAT, TGSS, SEPE, DEHU, OARGT, CIRBE) with the holder's own certificate: reads by default, local PAdES and XAdES signing, confirmed writes.",
   "license": "MIT",
   "private": false,
   "packageManager": "pnpm@12.5.1",
   "type": "module",
   "bin": {
-    "ventanilla-unica": "./dist/cli/main.js"
+    "ventanilla-unica": "dist/cli/main.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

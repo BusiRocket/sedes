@@ -6,6 +6,14 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-09-26
+
+### Fixed
+
+- The `bin` path is written without a leading `./`, which `npm publish` rewrote
+  with a warning on 0.1.0. First release published from GitHub Actions through
+  npm trusted publishing, with provenance.
+
 ## [0.1.0] - 2026-09-26
 
 ### Security
