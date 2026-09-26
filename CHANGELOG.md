@@ -6,6 +6,8 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-09-26
+
 ### Added
 
 - `junta carpeta-expedientes|carpeta-notificaciones|documentos|representados`:
@@ -13,6 +15,11 @@ All notable changes to this project are documented here. The format follows
   expedientes search to 30 days, so `carpeta-expedientes` sweeps
   `--desde`..`--hasta` (default the last 365 days) one window at a time.
   Notifications are listed, never opened.
+
+### Fixed
+
+- Carpeta Ciudadana requests wait up to 180 s: the sede takes 50 to 70 s on some
+  result pages, past the client's 60 s default.
 
 ## [0.2.0] - 2026-09-26
 
