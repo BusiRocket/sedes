@@ -84,12 +84,6 @@
 - [ ] **Junta de Extremadura and Ayuntamiento de Cáceres** have only Playwright
       evidence; capture them at HTTP level before a port.
 
-## Refactors
-
-- [ ] **Rename the local checkout** `~/p/sedes` to `~/p/ventanilla-unica` when
-      no shell or session has its working directory inside it, and update the
-      paths that name it (`~/p/PROJECT-MAP.md`, the wiki page, `~/p/TODO.md`).
-
 ## Documentation
 
 - [ ] **Launch after `v0.1.0`:** the Spanish LinkedIn post (draft delivered to

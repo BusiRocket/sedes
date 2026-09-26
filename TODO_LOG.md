@@ -44,3 +44,9 @@
   - Result: package, binary, environment variables and GitHub repository
     renamed; nothing had been published as `sedes`.
   - Evidence: rename commit on `main`, `pnpm check:ci` green.
+
+- [x] 2026-09-26 — **Refactors:** Local checkout moved from `~/p/sedes` to
+      `~/p/ventanilla-unica`; the wiki page is now
+      `projects/ventanilla-unica.md`.
+  - Evidence: wiki `794125f1`, `~/p` `c472fa7`; `brain graph` reports 0 dangling
+    links.
