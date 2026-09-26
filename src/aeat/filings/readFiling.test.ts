@@ -56,7 +56,7 @@ describe('readFiling', () => {
   })
 
   it('downloads and writes the PDF with an output directory', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'sedes-aeat-'))
+    dir = await mkdtemp(join(tmpdir(), 'ventanilla-unica-aeat-'))
     const request = vi
       .fn<HttpClient['request']>()
       .mockResolvedValueOnce(page("src:'x?CSV=ABC'"))

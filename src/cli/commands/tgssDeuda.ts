@@ -2,7 +2,7 @@ import { readTgssDebt } from '../../tgss/debt/readTgssDebt'
 import { validateDebtReportKind } from '../../tgss/debt/validators/validateDebtReportKind'
 import type { Command } from '../types/Command'
 
-/** `sedes tgss deuda --nif <NIF> [--tipo detallado|total] [--out <dir>]`: emit and read the TGSS "informe de deuda exigible". */
+/** `ventanilla-unica tgss deuda --nif <NIF> [--tipo detallado|total] [--out <dir>]`: emit and read the TGSS "informe de deuda exigible". */
 export const tgssDeuda: Command = {
   portal: 'tgss',
   action: 'deuda',

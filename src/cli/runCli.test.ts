@@ -38,7 +38,7 @@ describe('runCli', () => {
   })
 
   it('runs the command with a certificate client and prints JSON', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'sedes-'))
+    const dir = await mkdtemp(join(tmpdir(), 'ventanilla-unica-'))
     const cert = join(dir, 'c.pem')
     const key = join(dir, 'k.pem')
     // eslint-disable-next-line security/detect-non-literal-fs-filename
@@ -57,8 +57,8 @@ describe('runCli', () => {
 
   it('refuses to run without a certificate', async () => {
     const previous = { ...process.env }
-    delete process.env['SEDES_CERT']
-    delete process.env['SEDES_KEY']
+    delete process.env['VENTANILLA_UNICA_CERT']
+    delete process.env['VENTANILLA_UNICA_KEY']
     try {
       await expect(runCli(['demo', 'echo'], [echo], () => {})).rejects.toThrow(
         'certificate required',

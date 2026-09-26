@@ -47,7 +47,7 @@ describe('emitVidaLaboral', () => {
   })
 
   it('logs into INAF0011, posts the dates, downloads the informe and writes it', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'sedes-vl-'))
+    dir = await mkdtemp(join(tmpdir(), 'ventanilla-unica-vl-'))
     const generatedXml =
       '<ProsaXMLData><MESSAGES><MESSAGE><TEXTO><![CDATA[Informe generado correctamente]]></TEXTO></MESSAGE></MESSAGES>' +
       '<SCREEN_REPORTS><PREVIEWS><PREVIEW IDEMBEDDED="Informe" SECUENCIAL="2"/></PREVIEWS></SCREEN_REPORTS></ProsaXMLData>'
@@ -121,7 +121,7 @@ describe('emitVidaLaboral', () => {
   })
 
   it('names the file after the holder when the screen carries no NAF, and after nothing when it carries neither', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'sedes-vl-'))
+    dir = await mkdtemp(join(tmpdir(), 'ventanilla-unica-vl-'))
     const generatedXml =
       '<ProsaXMLData><PREVIEW SECUENCIAL="1"/></ProsaXMLData>'
     const pdf = Buffer.from('%PDF-1.7 x')

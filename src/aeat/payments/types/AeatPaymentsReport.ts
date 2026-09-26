@@ -1,6 +1,6 @@
 import type { AeatPayment } from './AeatPayment'
 
-/** What `sedes aeat pagos` prints: every payment MisPagos lists for the holder. */
+/** What `ventanilla-unica aeat pagos` prints: every payment MisPagos lists for the holder. */
 export type AeatPaymentsReport = {
   readonly nif: string
   readonly entity?: string | undefined

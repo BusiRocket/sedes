@@ -1,4 +1,4 @@
-# sedes
+# ventanilla-unica
 
 [Read in English](README.md)
 
@@ -11,29 +11,29 @@ ejecuta los trámites de "Escritura" solo cuando los confirmas. Lo mantiene
 [InteliFactu](https://intelifactu.com), que lo usa para tener al día la parte de
 la administración en la contabilidad de sus clientes.
 
-| Comando                                                                                             | Sede                                          | Qué lee                                                                     |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------- | --------------------------------------------------------------------------- |
-| `sedes aeat deudas --nif <NIF>`                                                                     | Agencia Tributaria (AEAT)                     | Deudas pendientes, su detalle y los aplazamientos                           |
-| `sedes aeat pagos --nif <NIF> [--out d]`                                                            | AEAT                                          | Todos los pagos hechos (Mis pagos) con su NRC y los justificantes en PDF    |
-| `sedes aeat declaraciones --nif <NIF> --modelo m --ejercicio a [--periodo p] [--out d]`             | AEAT                                          | Los modelos presentados de un ejercicio, el CSV de cada uno y los PDF       |
-| `sedes aeat informativas --nif <NIF> --modelo m --ejercicio a [--out d]`                            | AEAT                                          | Las declaraciones informativas (190, 347, 349...) desde 2020, con CSV y PDF |
-| `sedes aeat certificado-censal --nif <NIF> --nombre "<razón social>" [--out d]`                     | AEAT                                          | El certificado de situación censal (lo emite)                               |
-| `sedes tgss deuda --nif <NIF> [--tipo detallado\|total] [--out d]`                                  | Seguridad Social (TGSS)                       | El informe de deuda, detallado o total (lo emite)                           |
-| `sedes tgss corriente --nif <NIF> --tipo generico\|licitacion\|subvenciones\|articulo-42 [--out d]` | TGSS                                          | El certificado de estar al corriente (lo emite)                             |
-| `sedes tgss vida-laboral --desde DD/MM/AAAA [--hasta DD/MM/AAAA] [--out d]`                         | TGSS                                          | El informe de vida laboral acotado (lo emite)                               |
-| `sedes tgss situacion [--out d]`                                                                    | TGSS                                          | El informe de situación actual del trabajador (lo emite)                    |
-| `sedes tgss nss [--out d]`                                                                          | TGSS                                          | El informe del número de la Seguridad Social (lo emite)                     |
-| `sedes tgss datos [--out d]`                                                                        | TGSS                                          | El informe de datos identificativos y de domicilio (lo emite)               |
-| `sedes tgss alta --fecha DD/MM/AAAA [--out d]`                                                      | TGSS                                          | El informe de alta laboral a fecha concreta (lo emite)                      |
-| `sedes tgss empresario [--out d]`                                                                   | TGSS                                          | El informe negativo de inscripción como empresario (lo emite)               |
-| `sedes tgss bases [--ejercicio a] [--out d]`                                                        | TGSS                                          | Las bases y cuotas ingresadas de un año, mes a mes (lo emite)               |
-| `sedes dehu list [--state s] [--year a]`                                                            | Dirección Electrónica Habilitada única (DEHÚ) | Notificaciones pendientes y realizadas, sin abrir ninguna                   |
-| `sedes dehu documentos --out d [--year a] [--id a,b]`                                               | DEHÚ                                          | Documento y justificante de las notificaciones ya realizadas                |
-| `sedes oargt recibos [--include paid] [--importes hoy]`                                             | OARGT, Diputación de Cáceres                  | Recibos en voluntaria y en ejecutiva, con el importe a día de hoy           |
-| `sedes sepe prestacion`                                                                             | SEPE                                          | La última prestación: fechas, días de derecho, consumidos y restantes       |
-| `sedes sepe certificado --out d`                                                                    | SEPE                                          | El certificado de situación de prestaciones en PDF (lo emite)               |
-| `sedes cirbe informe --nacimiento DD-MM-AAAA --email e`                                             | Banco de España (CIRBE)                       | Pide tu informe de riesgos (lo emite)                                       |
-| `sedes cirbe estado [--out d]`                                                                      | CIRBE                                         | Lista tus peticiones y descarga los PDF listos                              |
+| Comando                                                                                                        | Sede                                          | Qué lee                                                                     |
+| -------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | --------------------------------------------------------------------------- |
+| `ventanilla-unica aeat deudas --nif <NIF>`                                                                     | Agencia Tributaria (AEAT)                     | Deudas pendientes, su detalle y los aplazamientos                           |
+| `ventanilla-unica aeat pagos --nif <NIF> [--out d]`                                                            | AEAT                                          | Todos los pagos hechos (Mis pagos) con su NRC y los justificantes en PDF    |
+| `ventanilla-unica aeat declaraciones --nif <NIF> --modelo m --ejercicio a [--periodo p] [--out d]`             | AEAT                                          | Los modelos presentados de un ejercicio, el CSV de cada uno y los PDF       |
+| `ventanilla-unica aeat informativas --nif <NIF> --modelo m --ejercicio a [--out d]`                            | AEAT                                          | Las declaraciones informativas (190, 347, 349...) desde 2020, con CSV y PDF |
+| `ventanilla-unica aeat certificado-censal --nif <NIF> --nombre "<razón social>" [--out d]`                     | AEAT                                          | El certificado de situación censal (lo emite)                               |
+| `ventanilla-unica tgss deuda --nif <NIF> [--tipo detallado\|total] [--out d]`                                  | Seguridad Social (TGSS)                       | El informe de deuda, detallado o total (lo emite)                           |
+| `ventanilla-unica tgss corriente --nif <NIF> --tipo generico\|licitacion\|subvenciones\|articulo-42 [--out d]` | TGSS                                          | El certificado de estar al corriente (lo emite)                             |
+| `ventanilla-unica tgss vida-laboral --desde DD/MM/AAAA [--hasta DD/MM/AAAA] [--out d]`                         | TGSS                                          | El informe de vida laboral acotado (lo emite)                               |
+| `ventanilla-unica tgss situacion [--out d]`                                                                    | TGSS                                          | El informe de situación actual del trabajador (lo emite)                    |
+| `ventanilla-unica tgss nss [--out d]`                                                                          | TGSS                                          | El informe del número de la Seguridad Social (lo emite)                     |
+| `ventanilla-unica tgss datos [--out d]`                                                                        | TGSS                                          | El informe de datos identificativos y de domicilio (lo emite)               |
+| `ventanilla-unica tgss alta --fecha DD/MM/AAAA [--out d]`                                                      | TGSS                                          | El informe de alta laboral a fecha concreta (lo emite)                      |
+| `ventanilla-unica tgss empresario [--out d]`                                                                   | TGSS                                          | El informe negativo de inscripción como empresario (lo emite)               |
+| `ventanilla-unica tgss bases [--ejercicio a] [--out d]`                                                        | TGSS                                          | Las bases y cuotas ingresadas de un año, mes a mes (lo emite)               |
+| `ventanilla-unica dehu list [--state s] [--year a]`                                                            | Dirección Electrónica Habilitada única (DEHÚ) | Notificaciones pendientes y realizadas, sin abrir ninguna                   |
+| `ventanilla-unica dehu documentos --out d [--year a] [--id a,b]`                                               | DEHÚ                                          | Documento y justificante de las notificaciones ya realizadas                |
+| `ventanilla-unica oargt recibos [--include paid] [--importes hoy]`                                             | OARGT, Diputación de Cáceres                  | Recibos en voluntaria y en ejecutiva, con el importe a día de hoy           |
+| `ventanilla-unica sepe prestacion`                                                                             | SEPE                                          | La última prestación: fechas, días de derecho, consumidos y restantes       |
+| `ventanilla-unica sepe certificado --out d`                                                                    | SEPE                                          | El certificado de situación de prestaciones en PDF (lo emite)               |
+| `ventanilla-unica cirbe informe --nacimiento DD-MM-AAAA --email e`                                             | Banco de España (CIRBE)                       | Pide tu informe de riesgos (lo emite)                                       |
+| `ventanilla-unica cirbe estado [--out d]`                                                                      | CIRBE                                         | Lista tus peticiones y descarga los PDF listos                              |
 
 ## Escritura
 
@@ -43,29 +43,29 @@ el plan: cada petición que enviarían, con sus valores. Con `--confirmar si` la
 ejecutan y devuelven el justificante. Se detienen antes del acto si algo no
 cuadra con lo leído (titular, importe, documento).
 
-| Comando                                                                              | Sede | Trámite                                                                            |
-| ------------------------------------------------------------------------------------ | ---- | ---------------------------------------------------------------------------------- |
-| `sedes aeat comparecer --nif <NIF> --id <n> [--out d]`                               | AEAT | Comparece en una notificación de la sede de la AEAT; los plazos empiezan ese día   |
-| `sedes aeat carta-pago --nif <NIF> --clave K --importe n,nn [--out d]`               | AEAT | Genera una carta de pago parcial (modelo 010); pagarla es otro paso, en el banco   |
-| `sedes aeat domicilio --nif <NIF> --codigo-postal ... --via ... [...]`               | AEAT | Presenta el 036 de cambio de domicilio fiscal (personas jurídicas)                 |
-| `sedes tgss aplazamiento --nif <NIF> --plazos n --garantia exenta --documento f.pdf` | TGSS | Solicita un aplazamiento (XV207A01). De momento solo plan: falta capturar la firma |
-| `sedes tgss adjuntar --expediente n --documento f.pdf --tipo t`                      | TGSS | Adjunta un documento a un expediente. De momento solo plan, por lo mismo           |
+| Comando                                                                                         | Sede | Trámite                                                                            |
+| ----------------------------------------------------------------------------------------------- | ---- | ---------------------------------------------------------------------------------- |
+| `ventanilla-unica aeat comparecer --nif <NIF> --id <n> [--out d]`                               | AEAT | Comparece en una notificación de la sede de la AEAT; los plazos empiezan ese día   |
+| `ventanilla-unica aeat carta-pago --nif <NIF> --clave K --importe n,nn [--out d]`               | AEAT | Genera una carta de pago parcial (modelo 010); pagarla es otro paso, en el banco   |
+| `ventanilla-unica aeat domicilio --nif <NIF> --codigo-postal ... --via ... [...]`               | AEAT | Presenta el 036 de cambio de domicilio fiscal (personas jurídicas)                 |
+| `ventanilla-unica tgss aplazamiento --nif <NIF> --plazos n --garantia exenta --documento f.pdf` | TGSS | Solicita un aplazamiento (XV207A01). De momento solo plan: falta capturar la firma |
+| `ventanilla-unica tgss adjuntar --expediente n --documento f.pdf --tipo t`                      | TGSS | Adjunta un documento a un expediente. De momento solo plan, por lo mismo           |
 
 ## Firma
 
-| Comando                                                                                                           | Qué hace                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `sedes firmar pdf --in f.pdf --out g.pdf [--visible si] [--motivo texto]`                                         | Firma PAdES-B-B (ETSI.CAdES.detached) por actualización incremental; válida en Acrobat, pdfsig y openssl |
-| `sedes firmar xml --in f.xml --out g.xml [--modo enveloped\|enveloping\|detached] [--politica facturae\|ninguna]` | XAdES-BES/EPES con SHA-256 y la forma de AutoFirma; verificada con xmlsec1                               |
+| Comando                                                                                                                      | Qué hace                                                                                                 |
+| ---------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `ventanilla-unica firmar pdf --in f.pdf --out g.pdf [--visible si] [--motivo texto]`                                         | Firma PAdES-B-B (ETSI.CAdES.detached) por actualización incremental; válida en Acrobat, pdfsig y openssl |
+| `ventanilla-unica firmar xml --in f.xml --out g.xml [--modo enveloped\|enveloping\|detached] [--politica facturae\|ninguna]` | XAdES-BES/EPES con SHA-256 y la forma de AutoFirma; verificada con xmlsec1                               |
 
 Las dos firman en tu máquina con el certificado y la clave que indiques.
 
 ## Utilidades sin certificado
 
-| Comando                                                                  | Qué hace                                                                                              |
-| ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
-| `sedes validar nif --nif X`                                              | Valida un DNI, NIE, NIF especial o NIF de persona jurídica y dice de qué tipo es                      |
-| `sedes calendario fiscal --ejercicio 2026 [--modelo 303] [--periodo 3T]` | Plazos de presentación y de domiciliación tal como los publica la AEAT; un año no verificado da error |
+| Comando                                                                             | Qué hace                                                                                              |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `ventanilla-unica validar nif --nif X`                                              | Valida un DNI, NIE, NIF especial o NIF de persona jurídica y dice de qué tipo es                      |
+| `ventanilla-unica calendario fiscal --ejercicio 2026 [--modelo 303] [--periodo 3T]` | Plazos de presentación y de domiciliación tal como los publica la AEAT; un año no verificado da error |
 
 Sin navegador, sin dependencias en tiempo de ejecución y sin guardar nada: la
 herramienta habla HTTPS con tu certificado, recorre Cl@ve donde la sede lo pide,
@@ -74,7 +74,7 @@ interpreta la respuesta e imprime JSON. El certificado no sale de tu máquina.
 ## Instalación
 
 ```sh
-npm install -g sedes      # o: pnpm add -g sedes, o npx sedes ...
+npm install -g ventanilla-unica      # o: pnpm add -g ventanilla-unica, o npx ventanilla-unica ...
 ```
 
 Node 22 o superior.
@@ -94,14 +94,15 @@ chmod 600 key.pem
 Y pásalo por argumentos o por variables de entorno:
 
 ```sh
-sedes aeat deudas --cert cert.pem --key key.pem --nif 12345678Z
+ventanilla-unica aeat deudas --cert cert.pem --key key.pem --nif 12345678Z
 
-export SEDES_CERT=cert.pem SEDES_KEY=key.pem
-sedes aeat deudas --nif 12345678Z
+export VENTANILLA_UNICA_CERT=cert.pem VENTANILLA_UNICA_KEY=key.pem
+ventanilla-unica aeat deudas --nif 12345678Z
 ```
 
-`SEDES_KEY_PASSPHRASE` desbloquea una clave cifrada. En una máquina compartida
-usa las variables de entorno: los argumentos se ven en la lista de procesos.
+`VENTANILLA_UNICA_KEY_PASSPHRASE` desbloquea una clave cifrada. En una máquina
+compartida usa las variables de entorno: los argumentos se ven en la lista de
+procesos.
 
 ## Lo que no hace
 
@@ -118,12 +119,12 @@ partir de la tercera petición del mismo titular.
 
 ## Aviso legal
 
-Usa `sedes` solo con tu certificado, o con el de alguien que te haya autorizado,
-sobre sus propios datos. Te obligan las condiciones de uso de cada sede, no la
-herramienta. El proyecto no está afiliado a ninguna de las administraciones con
-las que habla ni cuenta con su aval; sus páginas cambian sin aviso y un parser
-puede romperse en cualquier momento. Comprueba en la propia sede cualquier dato
-del que dependa algo importante.
+Usa `ventanilla-unica` solo con tu certificado, o con el de alguien que te haya
+autorizado, sobre sus propios datos. Te obligan las condiciones de uso de cada
+sede, no la herramienta. El proyecto no está afiliado a ninguna de las
+administraciones con las que habla ni cuenta con su aval; sus páginas cambian
+sin aviso y un parser puede romperse en cualquier momento. Comprueba en la
+propia sede cualquier dato del que dependa algo importante.
 
 ## Licencia
 

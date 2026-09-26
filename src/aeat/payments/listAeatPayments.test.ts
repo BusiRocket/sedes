@@ -62,7 +62,7 @@ describe('listAeatPayments', () => {
   })
 
   it('downloads every receipt when an output directory is given', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'sedes-aeat-'))
+    dir = await mkdtemp(join(tmpdir(), 'ventanilla-unica-aeat-'))
     const request = buildRequest()
     const client: HttpClient = { request, cookie: () => undefined }
 

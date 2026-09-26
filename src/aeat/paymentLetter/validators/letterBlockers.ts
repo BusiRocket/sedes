@@ -13,7 +13,7 @@ export const letterBlockers = (
   const blockers: string[] = []
   if (context.pendingNotifications > 0)
     blockers.push(
-      `${String(context.pendingNotifications)} unread AEAT notification(s) block the payment chain; appear first (sedes aeat comparecer).`,
+      `${String(context.pendingNotifications)} unread AEAT notification(s) block the payment chain; appear first (ventanilla-unica aeat comparecer).`,
     )
   if (!debt) {
     blockers.push(`Liquidación ${request.clave} is not in the debt list.`)

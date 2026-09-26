@@ -34,7 +34,7 @@ const stub = (...texts: string[]): HttpClient => {
 
 describe('downloadRiskReport', () => {
   it('walks list, request, file, release and download', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'sedes-cirbe-'))
+    const dir = await mkdtemp(join(tmpdir(), 'ventanilla-unica-cirbe-'))
     const client = stub(
       list('Resuelta'),
       files,

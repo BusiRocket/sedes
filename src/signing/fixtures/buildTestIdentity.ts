@@ -17,7 +17,7 @@ import { signPkcs1Sha256 } from '../signPkcs1Sha256'
  * no real certificate and no private key ever lives in the repository.
  */
 export const buildTestIdentity = (
-  commonName = 'SEDES TEST',
+  commonName = 'VENTANILLA UNICA TEST',
   nameOid: string = cmsOids.commonName,
 ): CertificateIdentity => {
   const { privateKey, publicKey } = generateKeyPairSync('rsa', {

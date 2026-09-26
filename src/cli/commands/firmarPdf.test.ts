@@ -29,7 +29,7 @@ describe('firmarPdf', () => {
   })
 
   it('signs the file without touching the network', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'sedes-firmar-'))
+    const dir = await mkdtemp(join(tmpdir(), 'ventanilla-unica-firmar-'))
     const input = join(dir, 'in.pdf')
     // eslint-disable-next-line security/detect-non-literal-fs-filename -- a temporary test directory
     await writeFile(input, buildClassicPdf())

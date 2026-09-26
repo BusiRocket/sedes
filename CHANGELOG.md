@@ -6,6 +6,13 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Changed
+
+- Renamed from `sedes` to `ventanilla-unica` before the first release: the
+  package, the binary, the repository (`InteliFactu/ventanilla-unica`) and the
+  environment variables (`VENTANILLA_UNICA_CERT`, `VENTANILLA_UNICA_KEY`,
+  `VENTANILLA_UNICA_KEY_PASSPHRASE`).
+
 ### Fixed
 
 - Bodies that read as text (JSON, HTML) are no longer fed to `inflateRawSync`,
@@ -32,8 +39,8 @@ All notable changes to this project are documented here. The format follows
 - Certificate-bearing HTTPS client with cookie jar, redirect handling,
   ISO-8859-15 decoding and inflation of bodies compressed without a header.
 - HTML form parsing and the Cl@ve auto-submit relay walker.
-- CLI skeleton: `sedes <portal> <action> [--cert] [--key] [--out]`, JSON on
-  stdout, usage on `--help`.
+- CLI skeleton: `ventanilla-unica <portal> <action> [--cert] [--key] [--out]`,
+  JSON on stdout, usage on `--help`.
 - `aeat deudas`: pending debts, their detail and deferral agreements at the
   Agencia Tributaria.
 - `tgss deuda`: the "informe de deuda exigible" at the Seguridad Social.

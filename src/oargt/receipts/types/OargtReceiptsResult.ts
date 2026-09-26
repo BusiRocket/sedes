@@ -1,6 +1,6 @@
 import type { Receipt } from './Receipt'
 
-/** What `sedes oargt recibos` answers: the receipts found, this run's totals and what is still unresolved. */
+/** What `ventanilla-unica oargt recibos` answers: the receipts found, this run's totals and what is still unresolved. */
 export type OargtReceiptsResult = {
   readonly contactConfirmationPending: boolean
   readonly receipts: readonly Receipt[]

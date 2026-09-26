@@ -2,10 +2,10 @@
 
 ## What this tool touches
 
-`sedes` authenticates to public-administration portals with the holder's own
-qualified digital certificate and reads the holder's own data. The certificate
-and its private key are the most sensitive material on the machine that runs it.
-The tool:
+`ventanilla-unica` authenticates to public-administration portals with the
+holder's own qualified digital certificate and reads the holder's own data. The
+certificate and its private key are the most sensitive material on the machine
+that runs it. The tool:
 
 - reads the certificate and key from the paths you give it, for the lifetime of
   one command, and never copies, caches or uploads them;
@@ -15,11 +15,11 @@ The tool:
 - stores nothing else, sends nothing anywhere except to the portal you asked
   for, and has no telemetry.
 
-Keep the key file mode `0600`, prefer `SEDES_CERT` and `SEDES_KEY` over command
-line arguments on shared machines (arguments are visible in the process list),
-and never commit certificate material. The repository's `.gitignore` refuses
-`*.pem`, `*.p12`, `*.pfx`, `*.key`, `*.crt` and `*.cer`; a `gitleaks` pre-push
-hook scans every push.
+Keep the key file mode `0600`, prefer `VENTANILLA_UNICA_CERT` and
+`VENTANILLA_UNICA_KEY` over command line arguments on shared machines (arguments
+are visible in the process list), and never commit certificate material. The
+repository's `.gitignore` refuses `*.pem`, `*.p12`, `*.pfx`, `*.key`, `*.crt`
+and `*.cer`; a `gitleaks` pre-push hook scans every push.
 
 ## Reporting a vulnerability
 

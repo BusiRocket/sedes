@@ -1,7 +1,7 @@
 import { listOargtReceipts } from '../../oargt/receipts/listOargtReceipts'
 import type { Command } from '../types/Command'
 
-/** `sedes oargt recibos [--include paid] [--importes yes]`: the OARGT (Diputación de Cáceres) receipt lists. */
+/** `ventanilla-unica oargt recibos [--include paid] [--importes yes]`: the OARGT (Diputación de Cáceres) receipt lists. */
 export const oargtRecibos: Command = {
   portal: 'oargt',
   action: 'recibos',

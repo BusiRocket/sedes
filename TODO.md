@@ -53,20 +53,11 @@
   body or the CEUS upload. Unblock: HAR captures of one deferral walked through
   signing and one attachment, then one authorised live run each.
 - [!] **npm trusted publisher and `v0.1.0`.** Needs the owner's npm account:
-  register the package for repository `InteliFactu/sedes`, workflow
-  `publish.yml`, then cut `v0.1.0`. The registration must use the final name, so
-  it waits on the naming decision below.
+  register the package `ventanilla-unica` for repository
+  `InteliFactu/ventanilla-unica`, workflow `publish.yml`, then cut `v0.1.0`.
 
 ## Pending Decisions
 
-- [ ] **Final name.** The owner finds `sedes` weak and suggested something like
-      `administracion-publica` or a catchier name. Free on npm on 2026-09-26:
-      `administracion-publica`, `papeleo`, `ventanilla`, `ventanilla-unica`,
-      `tramita`, `tramitador`, `funcionario`, `burocracia`. Nothing is published
-      under `sedes`, so renaming before `v0.1.0` breaks no one. After the
-      choice: package, binary, env vars, repository, READMEs, the InteliFactu
-      profile, the InteliFactu importers, the wiki page and the local checkout
-      directory.
 - [ ] **LICENSE copyright holder** still reads BusiRocket after the move to
       InteliFactu. Owner decides which entity holds it.
 
@@ -92,6 +83,12 @@
       and was not ported.
 - [ ] **Junta de Extremadura and Ayuntamiento de Cáceres** have only Playwright
       evidence; capture them at HTTP level before a port.
+
+## Refactors
+
+- [ ] **Rename the local checkout** `~/p/sedes` to `~/p/ventanilla-unica` when
+      no shell or session has its working directory inside it, and update the
+      paths that name it (`~/p/PROJECT-MAP.md`, the wiki page, `~/p/TODO.md`).
 
 ## Documentation
 

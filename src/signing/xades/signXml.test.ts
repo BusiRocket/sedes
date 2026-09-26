@@ -42,7 +42,7 @@ const signedInfoVerifies = (xml: Buffer): boolean => {
 }
 
 const xmlsecVerifies = (xml: Buffer, detached?: Buffer): string => {
-  const dir = mkdtempSync(join(tmpdir(), 'sedes-xades-'))
+  const dir = mkdtempSync(join(tmpdir(), 'ventanilla-unica-xades-'))
   if (detached) writeFileSync(join(dir, 'invoice.xml'), detached)
   writeFileSync(join(dir, 'signed.xml'), xml)
   return execFileSync(
@@ -82,7 +82,7 @@ describe('signXml', () => {
       expect(result).toMatchObject({
         mode,
         signatureId: 'Sig',
-        signer: 'CN=SEDES TEST',
+        signer: 'CN=VENTANILLA UNICA TEST',
       })
       expect(signedInfoVerifies(result.xml)).toBe(true)
       const root = parseXmlDocument(result.xml).root

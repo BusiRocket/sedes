@@ -2,7 +2,7 @@ import type { AttachmentQuery } from '../types/AttachmentQuery'
 import type { SubmittedDocument } from '../types/SubmittedDocument'
 import { mapCeusDocumentType } from './mapCeusDocumentType'
 
-/** Every step `sedes tgss adjuntar` would take, with the values it would send. */
+/** Every step `ventanilla-unica tgss adjuntar` would take, with the values it would send. */
 export const mapAttachmentPlan = (
   query: AttachmentQuery,
   document: SubmittedDocument,

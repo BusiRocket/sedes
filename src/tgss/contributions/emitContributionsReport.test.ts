@@ -37,7 +37,7 @@ describe('emitContributionsReport', () => {
   })
 
   it('selects the year, reads the régimen rows, prints the informe and writes it', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'sedes-byc-'))
+    dir = await mkdtemp(join(tmpdir(), 'ventanilla-unica-byc-'))
     const pdf = Buffer.from('%PDF-1.7 bases')
     const request = vi
       .fn<HttpClient['request']>()

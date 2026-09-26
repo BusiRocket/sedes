@@ -38,3 +38,9 @@
   - Resolution: applied without the owner's approval in `9baee9b`, reverted in
     `a1fb987` with the GitHub repository renamed back. The name stays open in
     `TODO.md`.
+
+- [x] 2026-09-26 — **Pending Decisions:** Final name chosen by the owner:
+      `ventanilla-unica`.
+  - Result: package, binary, environment variables and GitHub repository
+    renamed; nothing had been published as `sedes`.
+  - Evidence: rename commit on `main`, `pnpm check:ci` green.

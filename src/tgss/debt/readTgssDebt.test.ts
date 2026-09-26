@@ -98,7 +98,7 @@ describe('readTgssDebt', () => {
       .mockResolvedValueOnce(page(postFormUrl, prosaHtml('t2', readyXml)))
       .mockResolvedValueOnce(page(viewDocUrl, '%PDF-1.4 fixture'))
     const client: HttpClient = { request, cookie: () => 'S1' }
-    dir = await mkdtemp(join(tmpdir(), 'sedes-tgss-'))
+    dir = await mkdtemp(join(tmpdir(), 'ventanilla-unica-tgss-'))
 
     const result = await readTgssDebt(client, '12345678Z', dir)
 
@@ -159,7 +159,7 @@ describe('readTgssDebt', () => {
       .mockResolvedValueOnce(page(postFormUrl, prosaHtml('t2', readyXml)))
       .mockResolvedValueOnce(page(viewDocUrl, '%PDF-1.4 fixture'))
     const client: HttpClient = { request, cookie: () => 'S1' }
-    dir = await mkdtemp(join(tmpdir(), 'sedes-tgss-'))
+    dir = await mkdtemp(join(tmpdir(), 'ventanilla-unica-tgss-'))
 
     const result = await readTgssDebt(client, '12345678Z', dir, 'total')
 

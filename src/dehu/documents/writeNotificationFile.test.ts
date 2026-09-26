@@ -8,7 +8,7 @@ import { writeNotificationFile } from './writeNotificationFile'
 
 describe('writeNotificationFile', () => {
   it('decodes the base64 and writes it under the given name', async () => {
-    const dir = await mkdtemp(join(tmpdir(), 'sedes-dehu-'))
+    const dir = await mkdtemp(join(tmpdir(), 'ventanilla-unica-dehu-'))
     const content = Buffer.from('%PDF-1.4 test').toString('base64')
 
     const written = await writeNotificationFile(dir, 'N1_voucher.pdf', content)

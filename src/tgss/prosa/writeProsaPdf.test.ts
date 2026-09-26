@@ -15,7 +15,7 @@ describe('writeProsaPdf', () => {
   })
 
   it('names the file after the kind and a sanitised label', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'sedes-prosa-'))
+    dir = await mkdtemp(join(tmpdir(), 'ventanilla-unica-prosa-'))
     const pdf = Buffer.from('%PDF-1.4 informe')
 
     const path = await writeProsaPdf(dir, 'nss', 'NOMBRE APELLIDO/2', pdf)

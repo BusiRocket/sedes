@@ -1,2 +1,2 @@
-/** The `--politica` values of `sedes firmar xml`. */
+/** The `--politica` values of `ventanilla-unica firmar xml`. */
 export type SignXmlPolicyName = 'facturae' | 'ninguna'

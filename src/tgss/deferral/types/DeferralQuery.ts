@@ -1,4 +1,4 @@
-/** What `sedes tgss aplazamiento` asks for (XV207A01). */
+/** What `ventanilla-unica tgss aplazamiento` asks for (XV207A01). */
 export type DeferralQuery = {
   readonly nif: string
   readonly plazos: number

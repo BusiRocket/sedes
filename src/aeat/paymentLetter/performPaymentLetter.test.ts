@@ -36,7 +36,7 @@ const request = { nif: '00000000T', clave, importe: '100,50', confirm: true }
 
 describe('performPaymentLetter', () => {
   it('walks the chain, carrying each page token to the next step', async () => {
-    const outDir = await mkdtemp(join(tmpdir(), 'sedes-010-'))
+    const outDir = await mkdtemp(join(tmpdir(), 'ventanilla-unica-010-'))
     const client = portal(chain)
     const receipt = await performPaymentLetter(
       { request: client, cookie: () => undefined },

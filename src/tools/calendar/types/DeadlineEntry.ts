@@ -1,6 +1,6 @@
 import type { FilingWindow } from './FilingWindow'
 
-/** One modelo and period in the answer of `sedes calendario fiscal`. */
+/** One modelo and period in the answer of `ventanilla-unica calendario fiscal`. */
 export type DeadlineEntry = {
   readonly modelo: string
   readonly descripcion: string

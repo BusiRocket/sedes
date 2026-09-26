@@ -1,7 +1,7 @@
 import type { Receipt } from '../types/Receipt'
 
 /**
- * The note `sedes oargt recibos` carries about today's amounts: how to ask
+ * The note `ventanilla-unica oargt recibos` carries about today's amounts: how to ask
  * for them when they were not requested, and which enforced receipts came
  * back without one when they were.
  */
