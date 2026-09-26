@@ -67,3 +67,7 @@
     `./`) published by the workflow with provenance.
   - Evidence: tags `v0.1.0`, `v0.1.1`; Actions run 36235925200;
     `npm audit signatures` reports a verified signature and attestation.
+
+- [x] 2026-09-26 — **Pending Decisions:** LICENSE copyright holder set to Vibra
+      Lab S.L., the legal owner of InteliFactu per the wiki's project page;
+      BusiRocket, the previous holder, is a trade name of the same company.

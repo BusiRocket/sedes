@@ -29,11 +29,6 @@
   body or the CEUS upload. Unblock: HAR captures of one deferral walked through
   signing and one attachment, then one authorised live run each.
 
-## Pending Decisions
-
-- [ ] **LICENSE copyright holder** still reads BusiRocket after the move to
-      InteliFactu. Owner decides which entity holds it.
-
 ## Testing
 
 - [~] **AEAT `comparecer`, `carta-pago` and `domicilio`** ran live only in plan
